@@ -1,0 +1,15 @@
+<h1>All Properties</h1>
+
+<% @properties.each do |property| %>
+	Street Address: <%= property.street_address %>
+	<br>
+	City: <%= property.city %>
+	<br>
+	State: <%= property.state %>
+	<br>
+	Zillow ID: <%= property.zp_id %>
+	<br>
+	User ID: <%= property.user.user_name %>
+	<br>
+	<br>
+<% end %>
