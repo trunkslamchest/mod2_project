@@ -1,15 +1,27 @@
 <h1>All Properties</h1>
 
 <% @properties.each do |property| %>
-	Street Address: <%= property.street_address %>
+	Street Address: <%= property.get_deep_search_results.body.response.results.result.address.street %>
 	<br>
-	City: <%= property.city %>
+	City: <%= property.get_deep_search_results.body.response.results.result.address.city %>
 	<br>
-	State: <%= property.state %>
+	State: <%= property.get_deep_search_results.body.response.results.result.address.state %>
+	<br>
+	Zip Code: <%= property.get_deep_search_results.body.response.results.result.address.zipcode %>
+	<br>
+	Bedrooms: <%= property.get_deep_search_results.body.response.results.result.bedrooms %>
+		<br>
+	Bathrooms: <%= property.get_deep_search_results.body.response.results.result.bathrooms %>
+	<br>
+	Finished Square Feet: <%= property.get_deep_search_results.body.response.results.result.finished_sq_ft %>
+	<br>
+	Lot Square Feet: <%= property.get_deep_search_results.body.response.results.result.lot_size_sq_ft %>
 	<br>
 	Zillow ID: <%= property.zp_id %>
 	<br>
-	User ID: <%= property.user.user_name %>
+	User Name: <%= property.user.user_name %>
+	<br>
+	Deep Search: <%= property.get_deep_search_results.body %>
 	<br>
 	<br>
 <% end %>
