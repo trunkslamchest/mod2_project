@@ -1,15 +1,106 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+/* 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap'); */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Lato|PT+Sans);
+/* @import url(https://fonts.googleapis.com/css?family=Lato); */
+
+html {
+	font-size:100%;
+	font-family: "PT Sans";
+}
+
+body {
+	font-size:75%;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.heading {
+	margin: 1em auto 0.5em;
+	padding-bottom: 0.5em;
+	font-family: 'Roboto';
+}
+
+.sub_heading {
+	margin: 1em auto 0.5em;
+	padding-bottom: 0.5em;
+	font-family: 'Lato';
+}
+
+.main_container {
+	left: 0;
+	width: 110%;
+	position: absolute;
+	background-image: url("background02.jpg");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-attachment:fixed;
+	background-size: cover;
+	min-width: 100%;
+	min-height: 100vh;
+	max-width: 100%;
+	z-index:0;
+	margin-left:0; margin-right:0; margin-top:0; margin-bottom:0;
+	padding-left:0; padding-right:0; padding-top:0; padding-bottom:0;
+}
+
+.main_wrapper_frame {
+	width:90%; min-width: 75%; max-width: 90%;
+	height: 100%;
+	min-height: 100vh;
+	background: rgba(255, 255, 255, 0.25);
+	margin-left:auto; margin-right:auto; margin-top:0; margin-bottom:0;
+	padding-left: 2rem; padding-right: 2rem;
+	font-size: 1.5rem;
+	text-decoration: none;
+	z-index:1;
+
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.main_wrapper {
+	top:50px;
+	width:90%; min-width: 75%; max-width: 90%;
+	height: 100%;
+	min-height: 50vh;
+	background: rgba(255, 255, 255, 1);
+	/* font-family: lato; */
+	margin-left:auto; margin-right:auto; margin-top:0; margin-bottom:0;
+	padding-left: 2rem; padding-right: 2rem;
+	padding-top: 2rem; padding-bottom: 10rem;
+	font-size: 1.5rem;
+	text-decoration: none;
+	z-index:2;
+
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.main_wrapper a, .main_wrapper a:link, .main_wrapper a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+.main_wrapper a:hover, a:active {
+	color: #000;
+	text-decoration: none;
+	text-shadow: 0px 0px 2px rgb(0, 0, 0, 1);
+}
+
+.index h1 {
+	-webkit-font-smoothing: antialiased;
+	z-index:0;
+	color:#afafaf;
+	font-size:1rem;
+	font-family:roboto;
+	margin:10px 10px 10px 10px;
+	padding:10px 10px 10px 10px;
+}

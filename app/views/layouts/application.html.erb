@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Easycomps</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+	<head>
+		<title>
+			Test1
+		</title>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+	<body>
+		<div class="main_container">
+			<div class="header_frame">
+				<div class="h_links">
+					<div class="home_link">
+						<%= link_to "EASYCOMPS.COM", root_path %>
+					</div>
+					<%if @current_user == nil %>
+						<div class="user_link"><%= link_to "Sign Up!", new_user_path %></div>
+					<% else %>
+						<div class="user_link">
+						<%= link_to "My Profile/Avatar", user_path(@current_user) %>
+							<div class="user_menu_show">
+								<p>Hello World!</p>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class="main_wrapper_frame">
+				<div class="main_wrapper">
+					<%= yield %>
+				</div>
+			</div>
+			<div class="footer_frame">
+				<div class="f_links">
+					<%= link_to "Home", root_path %>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

@@ -1,21 +1,7 @@
-<h1>Easy comps</h1>
+<center>
 
-<h3>Please login:</h3>
-<%= form_for :session, url: "/login" do |f| %>
+<%= render "shared/heading", title: "Welcome to Easy Comps" %>
+<%= render "sessions_form" %>
 
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-  <% end %>
-
-  <%= f.submit 'Login' %>
-<% end %>
-
-<p><%= link_to "Create account", new_user_path %></p>
+<%= link_to "Create account", new_user_path, class: "link_create" %>
+</center>
