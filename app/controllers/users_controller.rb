@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destroy]
   skip_before_action :authorized, only: [:new, :create]
 
+	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
 def index
 	all_users
@@ -43,6 +44,7 @@ end
 
 def find_user
 	@user = User.find(params[:id])
+
 end
 
 def user_params
@@ -62,14 +64,9 @@ def set_user
 	end
 end
 
+def record_not_found
+	redirect_to @current_user
 end
 
-#
-# def set_user
-# 	@user = find_user
-# 	if @user != @current_user
-# 		redirect_to login_path
-# 	elsif @current_user.nil?
-# 		redirect_to login_path
-# 	end
-# end
+end
+
