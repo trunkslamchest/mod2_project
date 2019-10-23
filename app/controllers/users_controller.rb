@@ -55,8 +55,5 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def record_not_found
-		redirect_to @current_user
-	end
 
 end
