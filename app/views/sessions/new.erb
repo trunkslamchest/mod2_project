@@ -1,0 +1,18 @@
+<h1>Login page</h1>
+
+<%= form_for :session, url: "/login" do |f| %>
+
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+  <% end %>
+
+  <p><%= f.submit 'Login' %></p>
+<% end %>
