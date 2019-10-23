@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-# 	before_action :set_user, only: [:show, :edit, :update, :destroy]
-#   skip_before_action :authorized, only: [:new, :create]
+	# before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :set_current_user, only: [:new, :create]
 
-	# rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
 	def index
 		all_users
@@ -55,8 +55,8 @@ class UsersController < ApplicationController
 	# 	end
 	# end
 
-	# def record_not_found
-	# 	redirect_to @current_user
-	# end
+	def record_not_found
+		redirect_to @current_user
+	end
 
 end
