@@ -9,5 +9,11 @@
 <%= f.hidden_field :property_id, :value => @property.id %>
 <%= f.hidden_field :user_id, :value => @property.user_id %>
 <%= f.submit 'Generate Report' %>
+<% end %>
+
+<%= form_for @favorite do |f| %>
+<%= f.hidden_field :property_id, :value => @property.id %>
+<%= f.hidden_field :user_id, :value => @property.user_id %>
+<%= f.submit 'Add To Favorites' %>
 
 <% end %>
