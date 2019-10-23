@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 	resources :comps
 	resources :reports
 	resources :properties
-	resources :users
-
-  # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 
 get "/login", to: "sessions#new", as: "login"

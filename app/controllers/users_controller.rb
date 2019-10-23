@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # before_action :authorize_user, only: [:edit, :update, :destroy]
   skip_before_action :authorized, only: [:new, :create]
 
 	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -48,12 +47,6 @@ class UsersController < ApplicationController
 	def user_params
 		params.required(:user).permit(:user_name, :password, :email_address)
 	end
-
-	# def authorize_user
-	# 	if @user != @current_user
-	# 		redirect_to @current_user
-	# 	end
-	# end
 
 	def set_user
 		@user = find_user

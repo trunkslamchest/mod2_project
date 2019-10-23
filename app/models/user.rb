@@ -1,14 +1,9 @@
 class User < ApplicationRecord
-
 	has_many :reports
 	has_many :favorites
 	has_many :properties
 
 	has_secure_password
-
-	validates :user_name, :email_address, :password, presence: true
-	validates :email_address, uniqueness: true
-
 
 	PASSWORD_FORMAT = /\A
   (?=.{8,})          # Must contain 8 or more characters
@@ -19,4 +14,7 @@ class User < ApplicationRecord
 /x
 
 	validates :password, length: { in: 8..20 }, format: {with: PASSWORD_FORMAT}
+	validates :user_name, :email_address, :password, presence: true
+	validates :email_address, uniqueness: true
+
 end
