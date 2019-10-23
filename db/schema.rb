@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_172941) do
+ActiveRecord::Schema.define(version: 2019_10_23_153954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,10 @@ ActiveRecord::Schema.define(version: 2019_10_22_172941) do
     t.bigint "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "avg_size"
+    t.float "avg_price"
+    t.float "avg_bed"
+    t.float "avg_bath"
     t.index ["property_id"], name: "index_reports_on_property_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
