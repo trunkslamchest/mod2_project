@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-	# before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :set_current_user, only: [:new, :create]
-
 	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
 	def index
@@ -47,13 +45,6 @@ class UsersController < ApplicationController
 	def user_params
 		params.required(:user).permit(:user_name, :password, :email_address)
 	end
-
-	# def set_user
-	# 	@user = find_user
-	# 	if @user != @current_user
-	# 		redirect_to @current_user
-	# 	end
-	# end
 
 	def record_not_found
 		redirect_to @current_user

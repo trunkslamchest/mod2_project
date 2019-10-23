@@ -3,7 +3,7 @@ class PropertiesController < ApplicationController
 	def index
 		all_properties
 	end
-	
+
 	def show
 		find_property
 	end
@@ -25,22 +25,22 @@ def show
 
 	if @property.valid?
 		redirect_to @property
-	else 
+	else
 		  flash[:errors] = @property.errors.full_messages
 		  redirect_to new_property_path
 	end
 
-  end 
+  end
 
 private
-	
+
 	def find_property
 		@property = Property.find(params[:id])
 	end
 
  def property_params
 	params.require(:property).permit(:street_address, :city, :state, :zp_id, :user_id)
- end 
+ end
 
 	def all_properties
 		@properties = Property.all
@@ -102,6 +102,6 @@ private
 		"WI",
 		"WV",
 		"WY"]
-	end 
+	end
 
 end
