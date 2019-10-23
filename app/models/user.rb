@@ -13,7 +13,7 @@ class User < ApplicationRecord
   (?=.*[[:^alnum:]]) # Must contain a symbol
 /x
 
-	validates :password, length: { in: 8..20 }, format: {with: PASSWORD_FORMAT}
+	validates :password, format: {with: PASSWORD_FORMAT}
 	validates :user_name, :email_address, :password, presence: true
 	validates :email_address, uniqueness: true
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1><%= @property.get_deep_search_results.body.response.results.result.address.street %></h1>
 	<%= @property.get_deep_search_results %>
 	<br>
@@ -21,3 +22,24 @@
 	<br>
 	Deep Search: <%= @property.get_deep_search_results.body %>
 	<br>
+=======
+<h1><%= @property.street_address %></h1>
+<h2><%= @property.city %>, <%= @property.state %> <%= @property.zipcode %></h2>
+<img src=<%= @property.main_image %> alt="main image">
+<p><%= @property.bedrooms%> Bed</p>
+<p> <%= @property.bathrooms%> Bath</p>
+<p> <%= @property.square_footage%> Square Feet</p>
+
+<%= form_for @report do |f| %>
+<%= f.hidden_field :property_id, :value => @property.id %>
+<%= f.hidden_field :user_id, :value => @property.user_id %>
+<%= f.submit 'Generate Report' %>
+<% end %>
+
+<%= form_for @favorite do |f| %>
+<%= f.hidden_field :property_id, :value => @property.id %>
+<%= f.hidden_field :user_id, :value => @property.user_id %>
+<%= f.submit 'Add To Favorites' %>
+
+<% end %>
+>>>>>>> bbf4add839a5028286a5408728fc3ee5edd5a614

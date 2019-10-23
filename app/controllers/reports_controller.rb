@@ -1,7 +1,23 @@
 class ReportsController < ApplicationController
 
-  def index
-    @reports = Report.all
-  end
-  
+    def show
+        @report = Report.find(params[:id])
+        @property = @report.property
+        @comps = @property.comps
+
+    end
+
+    def create
+      @report = Report.create(report_params)
+        if @report.save
+        redirect_to @report
+        end
+    end
+
+    private
+
+    def report_params
+        params.require(:report).permit(:user_id, :property_id)
+     end
+
 end
