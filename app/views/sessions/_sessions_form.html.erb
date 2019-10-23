@@ -1,0 +1,17 @@
+<h3>Please login:</h3>
+<%= form_for :session, url: "/login", html: { class: "form" } do |f| %>
+
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+  <% end %>
+	<br>
+  <%= f.submit 'Login', class: "link_create"  %>
+<% end %>
