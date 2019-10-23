@@ -1,9 +1,9 @@
-<h1>Report for <%= @report.property.street_address%>, <%= @report.property.city %>, <%= @report.property.state %></h1>
+<h1>Report for <%= @report.property.street_address.titleize%>, <%= @report.property.city.titleize %>, <%= @report.property.state %></h1>
 <img src=<%= @report.property.main_image %> alt="main image">
 <div>
 <h4>Home Size</h4>
 <p>This home is <%= number_to_percentage(@report.size_comparison.abs * 100, precision: 2) %> <%= @report.smaller_or_larger %> than comparable homes</p>
-<p>Average home size: <%= @report.avg_size %> sqare feet</p>
+<p>Average home size: <%= @report.avg_size.round(1) %> sqare feet</p>
 <p>This home: <%= @report.property.square_footage %> square feet</p>
 </div>
 <div>

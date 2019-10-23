@@ -2,6 +2,7 @@ class Property < ApplicationRecord
 	belongs_to :user
 	has_many :comps, dependent: :destroy
 	before_create :get_zp_id
+	after_create :build_comps
 	after_initialize :start_zester
 
 	def zester
@@ -60,5 +61,52 @@ class Property < ApplicationRecord
 	end
 
 
+	def collect_comps
+		#gives us an array of hashes with comp data
+		#HELPER METHOD
+	   zresponse = self.get_deep_comps
+	   zresponse.body["response"]["properties"]["comparables"]["comp"]
+	end
+
+	def find_details_by_zp_id(my_zp_id = self.zp_id)
+	   @zester.property.updated_property_details('zpid' => my_zp_id )
+	end
+
+	def get_images
+	 zresponse = find_details_by_zp_id
+	 if zresponse.body["response"] == nil
+		 return ["https://i.pinimg.com/originals/48/bc/d6/48bcd68d718226b7febeb4407548953d.png"]
+	 else
+		zresponse.body["response"]["images"]["image"]["url"]
+
+	 end
+	end
+
+	def bedrooms
+		self.get_deep_search_results.body["response"]["results"]["result"]["bedrooms"]
+	end
+
+	def bathrooms
+		self.get_deep_search_results.body["response"]["results"]["result"]["bathrooms"]
+	end
+
+	def square_footage
+     self.get_deep_search_results.body["response"]["results"]["result"]["finished_sq_ft"]
+	end
+
+	def build_comps
+		my_comps = self.collect_comps
+
+		my_comps.each { |comp|
+		Comp.create(
+			property_id: self.id,
+			zp_id: comp["zpid"],
+			beds: comp["bedrooms"],
+			bath: comp["bathrooms"],
+			price: comp["last_sold_price"]["_content_"].to_d
+		)
+	}
+
+	end
 
 end

@@ -5,11 +5,11 @@ class Report < ApplicationRecord
 	belongs_to :user
 	belongs_to :property
 	before_create :set_values
-	after_find :comp_array
+	# after_find :build_comp_array
 
-	def comp_array
-	 @comp_array = self.property.comps
-	end 
+	# def build_comp_array
+	#  @comp_array = self.property.comps
+	# end 
 
 	def set_values
 		self.avg_price = set_avg_price
@@ -19,22 +19,22 @@ class Report < ApplicationRecord
 	end 
 
 	def all_comp_sq_ft
-		a = @comp_array.map { |comp| comp.square_footage.to_f }
+		a = self.property.comps.map { |comp| comp.square_footage.to_f }
 		a.reject { |size| size == 0.0 }
 	end 
 
 	def all_comp_price
-		a = @comp_array.map { |comp| comp.price.to_f }
+		a = self.property.comps.map { |comp| comp.price.to_f }
 		a.reject { |price| price == 0.0 }
 	end 
 
 	def all_comp_bedrooms
-		a = @comp_array.map { |comp| comp.bedrooms.to_f }
+		a = self.property.comps.map { |comp| comp.bedrooms.to_f }
 		a.reject { |num_beds| num_beds == 0.0 }
 	end 
 
 	def all_comp_bathrooms
-		a = @comp_array.map { |comp| comp.bathrooms.to_f }
+		a = self.property.comps.map { |comp| comp.bathrooms.to_f }
 		a.reject { |num_baths| num_baths == 0.0 }
 	end 
 

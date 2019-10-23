@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <h1><%= @property.get_deep_search_results.body.response.results.result.address.street %></h1>
 	<%= @property.get_deep_search_results %>
 	<br>
@@ -25,6 +26,10 @@
 =======
 <h1><%= @property.street_address %></h1>
 <h2><%= @property.city %>, <%= @property.state %> <%= @property.zipcode %></h2>
+=======
+<h1><%= @property.street_address.titleize %></h1>
+<h2><%= @property.city.titleize %>, <%= @property.state %> <%= @property.zipcode %></h2>
+>>>>>>> b76799d16b7b6759d68079de3c9d46a81ba1282d
 <img src=<%= @property.main_image %> alt="main image">
 <p><%= @property.bedrooms%> Bed</p>
 <p> <%= @property.bathrooms%> Bath</p>
@@ -42,4 +47,11 @@
 <%= f.submit 'Add To Favorites' %>
 
 <% end %>
+<<<<<<< HEAD
 >>>>>>> bbf4add839a5028286a5408728fc3ee5edd5a614
+=======
+
+<% if flash[:success] %>
+    <%= flash[:success] %>
+<% end %>
+>>>>>>> b76799d16b7b6759d68079de3c9d46a81ba1282d
