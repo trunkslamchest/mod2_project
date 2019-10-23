@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 
-get "/login", to: "sessions#new", as: "login"
-post "/login", to: "sessions#create"
-delete "/logout", to: "sessions#destroy"
+  get "/login", to: "sessions#new", as: "login"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
-root "sessions#new"
+  root "sessions#new"
 
 end
