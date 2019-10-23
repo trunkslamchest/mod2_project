@@ -107,6 +107,6 @@ class Property < ApplicationRecord
 		)
 	}
 
-	end
+	end 
 
 end
