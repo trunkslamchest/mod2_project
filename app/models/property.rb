@@ -5,11 +5,11 @@ class Property < ApplicationRecord
 	after_create :build_comps
 	after_initialize :start_zester
 
-	def zester 
+	def zester
 		#this is a reader method for @zester, which is NOT stored in the DB
 		#from here, we can call Zester methods off this object
      @zester
-	end 
+	end
 
 	def start_zester
 		#sets instance variable zester and tells the property what its zp_id is
@@ -23,11 +23,11 @@ class Property < ApplicationRecord
 	def zipcode
 	 zresponse = get_deep_search_results
 	 zresponse.body["response"]["results"]["result"]["address"]["zipcode"]
-	end 
+	end
 
 	def main_image
 		get_images.first
-	end 
+	end
 
 	def get_zp_id
 	   zresponse = self.get_deep_search_results
@@ -44,21 +44,22 @@ class Property < ApplicationRecord
 	   end
 	end
 
-	def price 
+	def price
 	  zestimate = self.get_deep_search_results.body["response"]["results"]["result"]["zestimate"]["amount"]["_content_"]
 		if zestimate.nil?
 			#if both price and zestimate are unavailable, generate a random price
 			#fake data, but oh well
 			rand(300000..900000)
-		else 
+		else
 			zestimate.to_i
-	  end 	
+	  end
 	end
 
 	def get_deep_comps
 		#HELPER METHOD
 	 @zester.property.deep_comps('zpid' => self.get_zp_id )
 	end
+
 
 	def collect_comps
 		#gives us an array of hashes with comp data
@@ -77,17 +78,17 @@ class Property < ApplicationRecord
 		 return ["https://i.pinimg.com/originals/48/bc/d6/48bcd68d718226b7febeb4407548953d.png"]
 	 else
 		zresponse.body["response"]["images"]["image"]["url"]
-		 
+
 	 end
 	end
-  
-	def bedrooms 
-		self.get_deep_search_results.body["response"]["results"]["result"]["bedrooms"]
-	end 
 
-	def bathrooms 
+	def bedrooms
+		self.get_deep_search_results.body["response"]["results"]["result"]["bedrooms"]
+	end
+
+	def bathrooms
 		self.get_deep_search_results.body["response"]["results"]["result"]["bathrooms"]
-	end 
+	end
 
 	def square_footage
      self.get_deep_search_results.body["response"]["results"]["result"]["finished_sq_ft"]

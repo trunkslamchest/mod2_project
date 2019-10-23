@@ -1,28 +1,30 @@
 class ReportsController < ApplicationController
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     def show
         @report = Report.find(params[:id])
         @property = @report.property
         @comps = @property.comps
-        
+
     end
 
-    def index 
+    def index
         @reports = @current_user.reports
-    end 
+    end
 
     def create
       @report = Report.create(report_params)
         if @report.save
         redirect_to @report
         end
-    end 
+    end
 
     private
 
     def report_params
         params.require(:report).permit(:user_id, :property_id)
-     end 
+    end
+
 
 end
