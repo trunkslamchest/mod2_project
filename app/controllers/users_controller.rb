@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+	before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
+  skip_before_action :authorized, only: [:new, :create]
+
 
 def index
 	all_users
@@ -18,6 +22,11 @@ def create
 	redirect_to @user
 end
 
+def destroy
+	@current_user.destroy
+	redirect_to login_path
+end
+
 
 private
 
@@ -33,5 +42,27 @@ def user_params
 	params.required(:user).permit(:user_name, :password, :email_address)
 end
 
+def authorize_user
+	if @user != @current_user
+		redirect_to login_path
+	end
+end
+
+def set_user
+	@user = find_user
+	if @user != @current_user
+		redirect_to @current_user
+	end
+end
 
 end
+
+#
+# def set_user
+# 	@user = find_user
+# 	if @user != @current_user
+# 		redirect_to login_path
+# 	elsif @current_user.nil?
+# 		redirect_to login_path
+# 	end
+# end

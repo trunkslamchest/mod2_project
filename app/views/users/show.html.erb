@@ -1,4 +1,19 @@
-<h1><%= @user.user_name %></h1>
+<% if @current_user == @user %>
+  <h1>Dashboard</h1>
+  <h2>Welcome <%= @user.user_name %></h2>
 
 
-<%= link_to "Logout", logout_path, method: :delete %>
+  <%= form_tag @user, :method => 'get' do %>
+    <p><%= text_field_tag :search, params[:search] %></p>
+    <p><%= submit_tag "Search", :name => nil %></p>
+  <% end %>
+
+  <p><%= link_to "Delete account", @current_user, method: :delete %></p>
+  <p><%= link_to "Logout", logout_path, method: :delete %></p>
+
+<% else %>
+  <p>You are not aurhorized to see this page</p>
+  <p><%= link_to "Back to dashboard", @current_user %></p>
+<% end %>
+
+
