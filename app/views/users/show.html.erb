@@ -7,10 +7,9 @@
     <p><%= text_field_tag :search, params[:search] %></p>
     <p><%= submit_tag "Search", :name => nil %></p>
   <% end %>
-
+  <p><%= link_to "My reporsts", reports_path %></p>
   <p><%= link_to "Delete account", @current_user, method: :delete %></p>
   <p><%= link_to "Logout", logout_path, method: :delete %></p>
-
 <% else %>
   <p>You are not aurhorized to see this page</p>
   <p><%= link_to "Back to dashboard", @current_user %></p>

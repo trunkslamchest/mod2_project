@@ -19,8 +19,15 @@ end
 
 def create
 	@user = User.create(user_params)
-	redirect_to @user
+	if @user.valid?
+		session[:user_id] = @user.id
+		redirect_to @user
+	else
+		flash[:errors] = 'Error'
+		redirect_to new_user_path
+	end
 end
+
 
 def destroy
 	@current_user.destroy
