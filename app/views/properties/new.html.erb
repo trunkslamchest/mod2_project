@@ -8,7 +8,6 @@
 
 <%= form_for @property do |f| %>
  
-
     <%= f.label :street_address, "Street Address:" %>
     <%= f.text_field :street_address %>
 
@@ -18,7 +17,7 @@
     <%= f.label :state %>
     <%= f.select :state, @states %>
 
-    <br>
+    <%= f.hidden_field :user_id, :value => @current_user.id %>
 
     <%= f.submit "Search" %>
 <% end %>

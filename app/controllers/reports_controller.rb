@@ -8,6 +8,10 @@ class ReportsController < ApplicationController
         
     end
 
+    def index 
+        @reports = @current_user.reports
+    end 
+
     def create
       @report = Report.create(report_params)
         if @report.save

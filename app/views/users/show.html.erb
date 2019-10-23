@@ -1,1 +1,16 @@
-<h1><%= @user.user_name %></h1>
+<% if @current_user == @user %>
+  <h1>Dashboard</h1>
+  <h2>Welcome <%= @user.user_name %></h2>
+
+
+ <p><%= link_to "New Property Search", new_property_path %></p>
+  <p><%= link_to "My Favorites", favorites_path %></p>
+  <p><%= link_to "My Reports", reports_path %></p>
+  <p><%= link_to "Delete account", @current_user, method: :delete %></p>
+  <p><%= link_to "Logout", logout_path, method: :delete %></p>
+<% else %>
+  <p>You are not aurhorized to see this page</p>
+  <p><%= link_to "Back to dashboard", @current_user %></p>
+<% end %>
+
+

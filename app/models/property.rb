@@ -2,6 +2,7 @@ class Property < ApplicationRecord
 	belongs_to :user
 	has_many :comps, dependent: :destroy
 	before_create :get_zp_id
+	after_create :build_comps
 	after_initialize :start_zester
 
 	def zester 
@@ -94,8 +95,6 @@ class Property < ApplicationRecord
 
 	def build_comps
 		my_comps = self.collect_comps
-
-		byebug
 
 		my_comps.each { |comp|
 		Comp.create(

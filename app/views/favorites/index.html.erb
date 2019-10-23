@@ -1,0 +1,6 @@
+<h1>My Favorites</h1>
+
+<% @favorites.each do |fav| %>
+ <%= link_to fav.property.street_address, fav.property %>
+
+<% end %>

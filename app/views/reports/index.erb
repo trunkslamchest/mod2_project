@@ -1,0 +1,6 @@
+<h1>My Reports</h1>
+
+<% @reports.each do |rep| %>
+ <%= link_to rep.property.street_address.titleize, rep %>
+
+<% end %>

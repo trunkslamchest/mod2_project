@@ -6,7 +6,8 @@
 	Email: <%= user.email_address %>
 	<br>
 	Properties: <% user.properties.each do |property| %>
-			<%= property.street_address %>
+			<%= link_to property.street_address, property_path(property) %>
+			<br>
 	<% end %>
 	<br>
 <% end %>

@@ -1,13 +1,18 @@
 class PropertiesController < ApplicationController
 
-def index
-	all_properties
-end
+	def index
+		all_properties
+	end
+	
+	def show
+		find_property
+	end
 
 def show
     @property = Property.find(params[:id])
 	@comps = @property.comps
 	@report = Report.new
+	@favorite = Favorite.new
   end
 
   def new
@@ -28,9 +33,13 @@ def show
   end 
 
 private
+	
+	def find_property
+		@property = Property.find(params[:id])
+	end
 
  def property_params
-	params.require(:property).permit(:street_address, :city, :state, :zp_id)
+	params.require(:property).permit(:street_address, :city, :state, :zp_id, :user_id)
  end 
 
 	def all_properties

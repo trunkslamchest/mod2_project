@@ -1,5 +1,5 @@
-<h1><%= @property.street_address %></h1>
-<h2><%= @property.city %>, <%= @property.state %> <%= @property.zipcode %></h2>
+<h1><%= @property.street_address.titleize %></h1>
+<h2><%= @property.city.titleize %>, <%= @property.state %> <%= @property.zipcode %></h2>
 <img src=<%= @property.main_image %> alt="main image">
 <p><%= @property.bedrooms%> Bed</p>
 <p> <%= @property.bathrooms%> Bath</p>
@@ -16,4 +16,8 @@
 <%= f.hidden_field :user_id, :value => @property.user_id %>
 <%= f.submit 'Add To Favorites' %>
 
+<% end %>
+
+<% if flash[:success] %>
+    <%= flash[:success] %>
 <% end %>
