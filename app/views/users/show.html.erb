@@ -3,11 +3,9 @@
   <h2>Welcome <%= @user.user_name %></h2>
 
 
-  <%= form_tag @user, :method => 'get' do %>
-    <p><%= text_field_tag :search, params[:search] %></p>
-    <p><%= submit_tag "Search", :name => nil %></p>
-  <% end %>
-  <p><%= link_to "My reporsts", reports_path %></p>
+ <p><%= link_to "New Property Search", new_property_path %></p>
+  <p><%= link_to "My Favorites", favorites_path %></p>
+  <p><%= link_to "My Reports", reports_path %></p>
   <p><%= link_to "Delete account", @current_user, method: :delete %></p>
   <p><%= link_to "Logout", logout_path, method: :delete %></p>
 <% else %>
