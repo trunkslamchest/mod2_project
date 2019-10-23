@@ -2,6 +2,10 @@
 
 <%= form_for @user do |f| %>
 
+  <% if flash[:errors] %>
+    <%= flash[:errors] %>
+  <% end %>
+
   <p><%= f.label :user_name%></p>
   <%= f.text_field :user_name%>
 
