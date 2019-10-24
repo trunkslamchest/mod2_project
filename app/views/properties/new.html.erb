@@ -7,12 +7,12 @@
 <% end %>
 
 <%= form_for @property do |f| %>
- 
+
     <%= f.label :street_address, "Street Address:" %>
     <%= f.text_field :street_address %>
 
     <%= f.label :city %>
-    <%= f.text_field :city %> 
+    <%= f.text_field :city %>
 
     <%= f.label :state %>
     <%= f.select :state, @states %>

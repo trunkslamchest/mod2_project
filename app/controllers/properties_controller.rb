@@ -4,25 +4,24 @@ class PropertiesController < ApplicationController
 	# 	my_properties
 	# end
 
-	def show
-		find_property
-	end
+	# def show
+	# 	find_property
+	# end
 
-def show
-  @property = Property.find(params[:id])
-	@comps = @property.comps
-	@report = Report.new
-	@favorite = Favorite.new
+	def show
+	  @property = find_property
+		@comps = @property.comps
+		@report = Report.new
+		@favorite = Favorite.new
   end
 
   def new
-	@property = Property.new
-	@states = all_states
+		@property = Property.new
+		@states = all_states
   end
 
   def create
 		@property = Property.create(property_params)
-
 		if @property.valid?
 			redirect_to @property
 		else
@@ -32,6 +31,7 @@ def show
   end
 
 private
+
 
 	def find_property
 		@property = Property.find(params[:id])
