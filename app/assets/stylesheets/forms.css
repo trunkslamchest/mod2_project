@@ -10,6 +10,7 @@
   background-color: #000;
   padding: 1em;
 }
+
 /*
 .form-field {
   margin: 1.5em 1em;
@@ -24,15 +25,12 @@
   /* margin: 1em 0.5em 0.25em; */
 }
 
-/* .form input,
-.form select,
-.form textarea {
-  width: 100%;
-  border: 1px solid rgba(34,36,38,.15);
-  padding: 0.5em 1em;
-}
+/* .form input, .form textarea */
 
 .form select {
+  width: 25%;
+  border: 1px solid rgba(34,36,38,.15);
+  padding: 0.5em 1em;
   outline: 0;
   background: #fff;
   border-radius: 0;
@@ -54,4 +52,4 @@
 
 .form .button {
   margin-top: 2em;
-} */
+}

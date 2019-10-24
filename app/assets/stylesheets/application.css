@@ -40,7 +40,7 @@ body {
 	min-width: 100%;
 	min-height: 100vh;
 	max-width: 100%;
-	z-index:0;
+	z-index:-10;
 	margin-left:0; margin-right:0; margin-top:0; margin-bottom:0;
 	padding-left:0; padding-right:0; padding-top:0; padding-bottom:0;
 }
@@ -54,7 +54,7 @@ body {
 	padding-left: 2rem; padding-right: 2rem;
 	font-size: 1.5rem;
 	text-decoration: none;
-	z-index:1;
+	z-index:-10;
 
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
 	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
@@ -73,7 +73,7 @@ body {
 	padding-top: 2rem; padding-bottom: 10rem;
 	font-size: 1.5rem;
 	text-decoration: none;
-	z-index:2;
+	z-index:-10;
 
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
 	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);

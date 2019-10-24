@@ -103,7 +103,7 @@
 	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
 	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
 
-	transition-property: color, background, box-shadow;
+	transition-property: color, background, box-shadow, padding-top;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
 	-webkit-transition-timing-function:ease-in-out;
@@ -113,17 +113,18 @@
 
 .user_menu_show {
 	display: none;
+		z-index: -6;
 }
 
 .user_link:hover .user_menu_show {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-
 }
 
 .user_menu_show ul {
 	list-style-type:none;
+		z-index: 0;
 }
 
 .user_menu_show ul li {
@@ -139,7 +140,7 @@ top: 100px;
 .user_menu_show a, .user_menu_show a:link , .user_menu_show a:visited {
 	display: flex;
 	flex-wrap: wrap;
-	padding-left:1rem; padding-right:1rem; padding-top:1rem; padding-bottom:1rem;
+	padding-left:0.5rem; padding-right:0rem; padding-top:1rem; padding-bottom:1rem;
 
 	color:#FFF;
 	background: linear-gradient(rgb(0, 90, 173, 1),  rgb(0, 95, 184, 1) );
@@ -167,12 +168,10 @@ top: 100px;
 	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
 	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
 
-	transition-property: color, background, box-shadow;
+	transition-property: color, background, box-shadow, padding-left, padding-right;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
 	-webkit-transition-timing-function:ease-in-out;
 	-moz-transition-timing-function:ease-in-out;
-
-	-webkit-font-smoothing: antialiased;
 
 }
