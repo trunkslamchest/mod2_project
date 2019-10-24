@@ -1,7 +1,6 @@
-<% if @current_user == @user %>
+<% if @current_user %>
     <h2>EasyComps Dashboard</h2>
-    <h3>Welcome, <%= @user.user_name %>!</h3>
-
+    <h3>Welcome, <%= @current_user.user_name %>!</h3>
 
     <%= link_to "New Property Search", new_property_path %>
     <br>

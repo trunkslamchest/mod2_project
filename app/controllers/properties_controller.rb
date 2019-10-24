@@ -1,9 +1,7 @@
 class PropertiesController < ApplicationController
 
-	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
 	def index
-		all_properties
+		my_properties
 	end
 
 	def show
@@ -11,7 +9,7 @@ class PropertiesController < ApplicationController
 	end
 
 def show
-    @property = Property.find(params[:id])
+  @property = Property.find(params[:id])
 	@comps = @property.comps
 	@report = Report.new
 	@favorite = Favorite.new
@@ -23,15 +21,14 @@ def show
   end
 
   def create
-	@property = Property.create(property_params)
+		@property = Property.create(property_params)
 
-	if @property.valid?
-		redirect_to @property
-	else
-		  flash[:errors] = @property.errors.full_messages
-		  redirect_to new_property_path
-	end
-
+		if @property.valid?
+			redirect_to @property
+		else
+			  flash[:errors] = @property.errors.full_messages
+			  redirect_to new_property_path
+		end
   end
 
 private
@@ -44,8 +41,8 @@ private
 	params.require(:property).permit(:street_address, :city, :state, :zp_id, :user_id)
  end
 
-	def all_properties
-		@properties = Property.all
+	def my_properties
+		@properties = @current_user.properties
 	end
 
 	def all_states

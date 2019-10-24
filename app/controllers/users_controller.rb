@@ -1,19 +1,17 @@
 class UsersController < ApplicationController
+	skip_before_action :authorized?, only: [:new, :create]
 	before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
-  skip_before_action :authorized, only: [:new, :create]
-
-	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
 	def index
 		all_users
 	end
 
 	def show
-		find_user
+		@current_user
 	end
 
 	def new
-		@user = User.new
+		@new_user = User.new
 	end
 
 	def edit
@@ -25,10 +23,10 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(user_params)
-		if @user.valid?
-			session[:user_id] = @user.id
-			redirect_to @user
+		@new_user = User.create(user_params)
+		if @new_user.valid?
+			session[:user_id] = @new_user.id
+			redirect_to @new_user
 		else
 			flash[:errors] = 'Error'
 			redirect_to new_user_path
@@ -49,7 +47,6 @@ class UsersController < ApplicationController
 
 	def find_user
 		@user = User.find(params[:id])
-
 	end
 
 	def user_params
@@ -57,11 +54,17 @@ class UsersController < ApplicationController
 	end
 
 	def set_user
-		@user = find_user
-		if @user != @current_user
+		if @current_user != find_user
 			redirect_to @current_user
 		end
 	end
 
+	def index_page
+    if @current_user == nil
+      root "sessions#new"
+    else
+      root "users#show"
+    end
+  end
 
 end

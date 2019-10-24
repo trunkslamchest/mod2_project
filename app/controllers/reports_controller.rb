@@ -1,7 +1,5 @@
 class ReportsController < ApplicationController
 
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
     def show
         @report = Report.find(params[:id])
         @property = @report.property
@@ -25,6 +23,5 @@ class ReportsController < ApplicationController
     def report_params
         params.require(:report).permit(:user_id, :property_id)
     end
-
 
 end
