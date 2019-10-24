@@ -24,3 +24,17 @@
 <p>Average home: <%= @report.avg_bath.round(1) %> bathrooms</p>
 <p>This home: <%= @report.property.bathrooms %> bathrooms</p>
 </div>
+
+<% if @report.user.favorites.where(property_id: @report.property.id ).empty? %>
+
+<%= form_for @favorite do |f| %>
+<%= f.hidden_field :property_id, :value => @report.property.id %>
+<%= f.hidden_field :user_id, :value => @report.user.id %>
+<%= f.submit 'Add To Favorites' %>
+<% end %>
+
+<% else %>
+<%= '⭐ Favorited' %>
+<%end %>
+
+<%= link_to 'Back to Dashboard', @current_user%>

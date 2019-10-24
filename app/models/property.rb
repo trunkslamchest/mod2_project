@@ -13,7 +13,7 @@ class Property < ApplicationRecord
 
 	def start_zester
 		#sets instance variable zester and tells the property what its zp_id is
-		@zester = Zester::Client.new('X1-ZWz1hfcq3wk5jf_4wzn5')
+		@zester = Zester::Client.new(ENV['SECRET_ZILLOW'])
 	end
 
 	def get_deep_search_results
@@ -63,8 +63,12 @@ class Property < ApplicationRecord
 	def collect_comps
 		#gives us an array of hashes with comp data
 		#HELPER METHOD
+	 begin
 	   zresponse = self.get_deep_comps
 	   zresponse.body["response"]["properties"]["comparables"]["comp"]
+	 rescue 
+      @comp_error = zresponse.body["message"].text
+	 end 
 	end
 
 	def find_details_by_zp_id(my_zp_id = self.zp_id)
@@ -74,12 +78,26 @@ class Property < ApplicationRecord
 	def get_images
 	 zresponse = find_details_by_zp_id
 	 if zresponse.body["response"] == nil
-		 return ["https://i.pinimg.com/originals/48/bc/d6/48bcd68d718226b7febeb4407548953d.png"]
+		 
+     [self.get_google_img]
+
 	 else
 		zresponse.body["response"]["images"]["image"]["url"]
 		 
 	 end
 	end
+
+	def google_connect
+		api_url = "https://maps.googleapis.com/maps/api/streetview/metadata?location=#{self.street_address} #{self.city} #{self.state}&key=#{ENV['SECRET_GOOGLE']}"
+		response_string = RestClient.get(api_url)
+		JSON.parse(response_string)
+	end 
+
+	def get_google_img
+		response_hash = self.google_connect
+		pano = response_hash["pano_id"]
+		"https://maps.googleapis.com/maps/api/streetview?size=600x300&pano=#{pano}&key=#{ENV['SECRET_GOOGLE']}"
+	end 
   
 	def bedrooms 
 		self.get_deep_search_results.body["response"]["results"]["result"]["bedrooms"]
@@ -94,6 +112,7 @@ class Property < ApplicationRecord
 	end
 
 	def build_comps
+	  begin
 		my_comps = self.collect_comps
 
 		my_comps.each { |comp|
@@ -102,10 +121,19 @@ class Property < ApplicationRecord
 			zp_id: comp["zpid"],
 			beds: comp["bedrooms"],
 			bath: comp["bathrooms"],
-			price: comp["last_sold_price"]["_content_"].to_d
+			price: 
+			if comp["last_sold_price"] == nil
+			 comp["zestimate"]
+			elsif comp["zestimate"] == nil && comp["last_sold_price"] == nil
+				rand(300000...900000)
+			else
+			 comp["last_sold_price"]["_content_"].to_d
+			end  
 		)
-	}
-
+	  }
+     rescue 
+      @comp_error
+	 end 
 	end 
 
 end

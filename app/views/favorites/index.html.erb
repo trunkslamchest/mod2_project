@@ -1,6 +1,12 @@
 <h1>My Favorites</h1>
 
+<ul>
 <% @favorites.each do |fav| %>
- <%= link_to fav.property.street_address, fav.property %>
+<li>
+ <%= link_to fav.property.street_address.titleize, fav.property %>
+ </li>
 
 <% end %>
+</ul>
+
+<%= link_to 'Back to Dashboard', @current_user%>

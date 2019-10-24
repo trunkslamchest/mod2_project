@@ -1,6 +1,9 @@
 <h1>My Reports</h1>
-
+<ul>
 <% @reports.each do |rep| %>
+<li>
  <%= link_to rep.property.street_address.titleize, rep %>
-
+</li>
 <% end %>
+</ul>
+<%= link_to 'Back to Dashboard', @current_user%>
