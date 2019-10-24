@@ -28,9 +28,8 @@
 }
 
 .f_links a, .f_links a:link , .f_links a:visited {
-	position:relative; left:0; right:0; top:0; bottom:0;
 	margin-left:0; margin-right:0; margin-top:0; margin-bottom:0;
-	padding-left:1%; padding-right:1%; padding-top:2%; padding-bottom:4.75%;
+	padding-left:1%; padding-right:1%; padding-top:2rem; padding-bottom:4.5rem;
 
 	z-index:6;
 
@@ -54,7 +53,7 @@
 	z-index:6;
 
 	color:rgb(255, 200, 0, 1);
-	font-family:roboto;
+	font-family:"Lato";
 	font-size:1rem;
 	text-decoration:none;
 

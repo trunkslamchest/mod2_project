@@ -2,12 +2,8 @@
  *= require_tree .
  *= require_self
  */
-/* 
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap'); */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Lato|PT+Sans);
-/* @import url(https://fonts.googleapis.com/css?family=Lato); */
 
 html {
 	font-size:100%;

@@ -1,6 +1,10 @@
 <h1>My Reports</h1>
 
-<% @reports.each do |rep| %>
- <%= link_to rep.property.street_address.titleize, rep %>
-
+<div class="report_wrapper">
+<% @reports.each_with_index do |rep, i| %>
+		<h2>Report Date: <%="#{rep.created_at.strftime("%B %d, %Y")}" %></h2>
+		<p><%= link_to rep.property.street_address.titleize, report_path(rep) %></p>
+		<hr>
+		<br>
 <% end %>
+</div>
