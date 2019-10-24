@@ -1,6 +1,6 @@
-<% if @current_user == @user %>
+<% if @current_user %>
   <h1>Dashboard</h1>
-  <h2>Welcome <%= @user.user_name %></h2>
+  <h2>Welcome <%= @current_user.user_name %></h2>
 
 
  <p><%= link_to "New Property Search", new_property_path %></p>
