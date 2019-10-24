@@ -11,17 +11,22 @@
 <%= f.submit 'Generate Report' %>
 <% end %>
 
-    <% if @current_user.id != @property.user_id%>
+
+    <% @favorite_object = @current_user.favorites.find_by(property_id: @property.id)%>
+
+    <% if @favorite_object.nil? %>
+
     <%= form_for @favorite do |f| %>
     <%= f.hidden_field :property_id, :value => @property.id %>
-    <%= f.hidden_field :user_id, :value => @property.user_id %>
+    <%= f.hidden_field :user_id, :value => @current_user.id %>
     <%= f.submit 'Add To Favorites' %>
+
+      <% if flash[:success] %>
+          <%= flash[:success] %>
+      <% end %>
+
     <% end %>
+    <% elsif @property.id == @favorite_object.property_id %>
+      <%= link_to "Remove from favorites", favorite_path, method: :delete, class: "link_delete" %>
     <% end %>
 
-  <%= link_to "Remove from favorites", favorite_path, method: :delete, class: "link_delete" %>
-
-
-<% if flash[:success] %>
-    <%= flash[:success] %>
-<% end %>
