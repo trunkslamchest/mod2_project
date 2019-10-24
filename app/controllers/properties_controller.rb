@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
 
 	def index
-		all_properties
+		my_properties
 	end
 
 	def show
@@ -21,15 +21,14 @@ def show
   end
 
   def create
-	@property = Property.create(property_params)
+		@property = Property.create(property_params)
 
-	if @property.valid?
-		redirect_to @property
-	else
-		  flash[:errors] = @property.errors.full_messages
-		  redirect_to new_property_path
-	end
-
+		if @property.valid?
+			redirect_to @property
+		else
+			  flash[:errors] = @property.errors.full_messages
+			  redirect_to new_property_path
+		end
   end
 
 private
@@ -42,7 +41,7 @@ private
 	params.require(:property).permit(:street_address, :city, :state, :zp_id, :user_id)
  end
 
-	def all_properties
+	def my_properties
 		@properties = @current_user.properties
 	end
 
