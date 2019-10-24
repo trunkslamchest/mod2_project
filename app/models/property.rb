@@ -6,7 +6,6 @@ class Property < ApplicationRecord
 	after_initialize :start_zester
 
 	validates :street_address, :city, :state, :user_id, presence: true
-	validates :street_address, inc
 
 	def zester
 		#this is a reader method for @zester, which is NOT stored in the DB

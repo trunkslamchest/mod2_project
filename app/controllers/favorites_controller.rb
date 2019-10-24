@@ -8,8 +8,9 @@ class FavoritesController < ApplicationController
     def create
         @favorite = Favorite.create(favorite_params)
           if @favorite.valid?
-          flash[:success] = "This home has been added to your favorites."
-          redirect_to @current_user
+            flash[:success] = "This home has been added to your favorites."
+            redirect_to @current_user
+          else
           end
       end
 

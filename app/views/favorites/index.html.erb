@@ -2,9 +2,7 @@
 
 <div class="fav_wrapper">
 <% @favorites.each do |fav| %>
-	<h2><%="#{fav.created_at.strftime("%r %B %d, %Y")}" %></h2>
+
 	<p><%= link_to fav.property.street_address, fav.property %></p>
-	<hr>
-	<br>
 </div>
 <% end %>
