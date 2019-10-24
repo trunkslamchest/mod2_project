@@ -5,22 +5,18 @@ class PropertiesController < ApplicationController
 	# end
 
 	def show
-		find_property
+		@property = Property.find(params[:id])
+		@comps = @property.comps
+		@report = Report.new
+		@favorite = Favorite.new
 	end
 
-def show
-  @property = Property.find(params[:id])
-	@comps = @property.comps
-	@report = Report.new
-	@favorite = Favorite.new
-  end
+	def new
+		@property = Property.new
+		@states = all_states
+	end
 
-  def new
-	@property = Property.new
-	@states = all_states
-  end
-
-  def create
+	def create
 		@property = Property.create(property_params)
 
 		if @property.valid?
@@ -29,17 +25,13 @@ def show
 			  flash[:errors] = @property.errors.full_messages
 			  redirect_to new_property_path
 		end
-  end
+	end
 
 private
 
-	def find_property
-		@property = Property.find(params[:id])
-	end
-
- def property_params
-	params.require(:property).permit(:street_address, :city, :state, :zp_id, :user_id)
- end
+	 def property_params
+		params.require(:property).permit(:street_address, :city, :state, :zp_id, :user_id)
+	 end
 
 	def my_properties
 		@properties = @current_user.properties

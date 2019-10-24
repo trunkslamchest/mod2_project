@@ -112,6 +112,7 @@
 
 
 .user_menu_show {
+	top:-500px;
 	display: none;
 		z-index: -6;
 }

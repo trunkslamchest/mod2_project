@@ -2,9 +2,14 @@
 
 <div class="report_wrapper">
 <% @reports.each_with_index do |rep, i| %>
-		<h2><%="#{rep.created_at.strftime("%B %d, %Y")}" %></h2>
-		<p><%= link_to rep.property.street_address.titleize, report_path(rep) %></p>
+	<div class="list_item">
+		<div class="list_header">
+			<%="#{rep.created_at.strftime("%r %B %d, %Y")}" %>
+		</div>
+		<div class="list_text">
+			<%= link_to rep.property.street_address.titleize, report_path(rep) %>
+		</div>
+	</div>
 		<hr>
-		<br>
 <% end %>
 </div>
