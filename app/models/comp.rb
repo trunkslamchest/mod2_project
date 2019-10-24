@@ -10,7 +10,7 @@ class Comp < ApplicationRecord
 
 	def start_zester
 		#sets instance variable zester and tells the property what its zp_id is
-		@zester = Zester::Client.new('X1-ZWz1hfcq3wk5jf_4wzn5')
+		@zester = Zester::Client.new(ENV['SECRET_ZILLOW'])
 	end
 
 	def get_deep_search_results
@@ -61,11 +61,24 @@ class Comp < ApplicationRecord
 	def get_images
 		zresponse = find_details_by_zp_id
 		if zresponse.body["response"] == nil
-			return ["https://i.pinimg.com/originals/48/bc/d6/48bcd68d718226b7febeb4407548953d.png"]
+				 
+			[self.get_google_img]
 		else
 		   zresponse.body["response"]["images"]["image"]["url"]
 			
 		end
+	end
+
+	def google_connect
+		api_url = "https://maps.googleapis.com/maps/api/streetview/metadata?location=#{self.street_address} #{self.city} #{self.state}&key=#{ENV['SECRET_GOOGLE']}"
+		response_string = RestClient.get(api_url)
+		JSON.parse(response_string)
+	end 
+
+	def get_google_img
+		response_hash = self.google_connect
+		pano = response_hash["pano_id"]
+		"https://maps.googleapis.com/maps/api/streetview?size=600x300&pano=#{pano}&key=#{ENV['SECRET_GOOGLE']}"
 	end
 
 end

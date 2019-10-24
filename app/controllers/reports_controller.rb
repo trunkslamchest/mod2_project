@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
         @report = Report.find(params[:id])
         @property = @report.property
         @comps = @property.comps
-
+        @favorite = Favorite.new
     end
 
     def index

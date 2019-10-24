@@ -24,6 +24,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'zester'
 
+gem 'rest-client'
+
+gem 'json'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
