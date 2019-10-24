@@ -22,12 +22,6 @@ body {
 	font-family: 'Roboto';
 }
 
-.sub_heading {
-	margin: 1em auto 0.5em;
-	padding-bottom: 0.5em;
-	font-family: 'Lato';
-}
-
 .main_container {
 	left: 0;
 	width: 110%;
@@ -92,7 +86,6 @@ body {
 }
 
 .index h1 {
-	-webkit-font-smoothing: antialiased;
 	z-index:0;
 	color:#afafaf;
 	font-size:1rem;
@@ -108,13 +101,14 @@ body {
 }
 
 .list_header {
-	position:;
 	float:left;
-		padding-left:0rem;
-		padding-right:1rem;
+
+	width: 100%;
+
+	padding-left:0rem;
+	padding-right:1rem;
 	padding-top:0.1rem;
 	padding-bottom:0.25rem;
-		width: 100%;
 
 	z-index:9;
 
@@ -126,10 +120,12 @@ body {
 }
 
 .list_text {
-	/* position: */
 	display:flex;
+
+	width: 100%;
+
 	padding-top:0.25rem;
 	padding-bottom:0.5rem;
-		width: 100%;
+
 	z-index:10;
 }
