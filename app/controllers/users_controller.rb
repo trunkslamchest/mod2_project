@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
-  skip_before_action :authorized, only: [:new, :create]
-
-	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  skip_before_action :not_authorized, only: [:new, :create]
 
 	def index
 		all_users
@@ -55,5 +53,12 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def index_page
+    if @current_user == nil
+      root "sessions#new"
+    else
+      root "users#show"
+    end
+  end
 
 end

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
   resources :favorites
 	resources :comps
 	resources :reports
-	resources :properties
+	resources :properties, only: [:show, :new, :create]
   resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 
@@ -10,6 +11,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  root "sessions#new"
+  root :to => 'users#index'
 
 end

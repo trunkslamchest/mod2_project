@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :set_current_user
-  before_action :authorized
+  before_action :not_authorized
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   private
 
-  def authorized
+  def not_authorized
     if @current_user == nil
       redirect_to login_path
     end
@@ -18,6 +19,7 @@ class ApplicationController < ActionController::Base
   def record_not_found
 		redirect_to @current_user
 	end
+
 
 end
 

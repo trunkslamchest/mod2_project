@@ -1,7 +1,5 @@
 class PropertiesController < ApplicationController
 
-	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
 	def index
 		all_properties
 	end
@@ -11,7 +9,7 @@ class PropertiesController < ApplicationController
 	end
 
 def show
-    @property = Property.find(params[:id])
+  @property = Property.find(params[:id])
 	@comps = @property.comps
 	@report = Report.new
 	@favorite = Favorite.new
@@ -45,7 +43,7 @@ private
  end
 
 	def all_properties
-		@properties = Property.all
+		@properties = @current_user.properties
 	end
 
 	def all_states

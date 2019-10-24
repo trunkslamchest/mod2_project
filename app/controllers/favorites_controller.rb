@@ -1,7 +1,5 @@
 class FavoritesController < ApplicationController
 
-    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
     def index
         # @favorites = Favorite.find_by(user_id: @current_user.id)
         @favorites = @current_user.favorites
