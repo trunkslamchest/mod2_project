@@ -1,8 +1,8 @@
 class PropertiesController < ApplicationController
 
-	def index
-		my_properties
-	end
+	# def index
+	# 	my_properties
+	# end
 
 	def show
 		find_property

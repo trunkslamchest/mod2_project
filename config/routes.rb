@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :favorites
 	resources :comps
 	resources :reports
-	resources :properties, only: [:index, :show, :new, :create]
+	resources :properties, only: [ :show, :new, :create]
   resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
 
