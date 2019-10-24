@@ -26,17 +26,58 @@ class Comp < ApplicationRecord
 	  @zester.property.updated_property_details('zpid' => my_zp_id )
 	end
 	  
+	# def bedrooms 
+	# 	self.get_deep_search_results.body["response"]["results"]["result"]["bedrooms"]
+	# end 
+
+	# def bathrooms 
+	# 	self.get_deep_search_results.body["response"]["results"]["result"]["bathrooms"]
+	# end 
+
+	# def square_footage
+    #  self.get_deep_search_results.body["response"]["results"]["result"]["finished_sq_ft"]
+	# end
+
 	def bedrooms 
-		self.get_deep_search_results.body["response"]["results"]["result"]["bedrooms"]
-	end 
+		begin
+		  self.get_deep_search_results.body["response"]["results"]["result"]["bedrooms"]
+		rescue 
+		 begin 
+		  self.get_deep_search_results.body["response"]["results"]["result"][0]["bedrooms"]
+		 rescue 
+		  "Unknown"
+		 end 
+		end 
+	  end 
+  
+	  def bathrooms 
+		  begin
+			  self.get_deep_search_results.body["response"]["results"]["result"]["bathrooms"]
+			rescue 
+			 begin 
+			  self.get_deep_search_results.body["response"]["results"]["result"][0]["bathrooms"]
+			 rescue 
+			  "Unknown"
+			 end 
+			end 
+	  end 
+  
+	  def square_footage
+	   begin
+		  self.get_deep_search_results.body["response"]["results"]["result"]["finished_sq_ft"]
+		rescue 
+		 begin 
+		  self.get_deep_search_results.body["response"]["results"]["result"][0]["finished_sq_ft"]
+		 rescue 
+		  "Unknown"
+		 end 
+		end 
+	  end
 
-	def bathrooms 
-		self.get_deep_search_results.body["response"]["results"]["result"]["bathrooms"]
-	end 
 
-	def square_footage
-     self.get_deep_search_results.body["response"]["results"]["result"]["finished_sq_ft"]
-	end
+
+
+
 
 	def city
 		self.get_deep_comps.body["response"]["properties"]["principal"]["address"]["city"]
@@ -55,8 +96,16 @@ class Comp < ApplicationRecord
 	end
 
 	def main_image
-		get_images.first
-	end 
+		begin
+		   get_images.first
+		rescue 
+		   minecraft_houses = ["https://cdn1-www.gamerevolution.com/assets/uploads/2019/04/Modest-Living-House-640x360.png",
+		   "https://res.cloudinary.com/lmn/image/upload/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/m/i/n/minecraft-suburban-house-youtube-20679.png",
+		   "https://www.minecraft-schematics.com/schematics/pictures/13786/list-picture-13786.png?time=1571590236",
+		   "https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/hdp09-Y3ZVHCAWA8F-Full-Image_GalleryBackground-en-US-1520541360917._SX1080_.jpg"]
+		   minecraft_houses.sample
+		end 
+	   end 
 
 	def get_images
 		zresponse = find_details_by_zp_id

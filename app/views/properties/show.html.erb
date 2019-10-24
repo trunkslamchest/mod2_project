@@ -31,7 +31,7 @@
 <p> <%= @property.bathrooms%> Bath</p>
 <p> <%= @property.square_footage%> Square Feet</p>
 
-<% if @property.user.reports.where(property_id: @property.id ).empty? %>
+<% if @property.user.reports.where(property_id: @property.id ).empty? && @property.comps.any? %>
 
 <%= form_for @report do |f| %>
 <%= f.hidden_field :property_id, :value => @property.id %>
@@ -39,7 +39,7 @@
 <%= f.submit 'Generate Report' %>
 <% end %>
 
-<% elsif @property.comps.empty? %>
+<% elsif @property.user.reports.where(property_id: @property.id ).empty? && @property.comps.empty? %>
 <div class="tooltip">Report not available for this property.
   <span class="tooltiptext">Some information is protected by Zillow at the request of the homeowner. It could be that comps are not available for this home, or that the information access has been restricted by law.</span>
 </div>

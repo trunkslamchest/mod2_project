@@ -19,23 +19,39 @@ class Report < ApplicationRecord
 	end 
 
 	def all_comp_sq_ft
+	  begin 
 		a = self.property.comps.map { |comp| comp.square_footage.to_f }
 		a.map {|x| x == 0.0 ? rand(1500...3000) : x}
+	  rescue
+		[rand(1500...3000), rand(1500...3000), rand(1500...3000), rand(1500...3000), rand(1500...3000)]
+	 end 
 	end 
 
 	def all_comp_price
+	  begin
 		a = self.property.comps.map { |comp| comp.price.to_f }
 		a.map {|x| x == 0.0 ? rand(150000..900000) : x}
+	  rescue 
+		[rand(150000..900000), rand(150000..900000), rand(150000..900000), rand(150000..900000), rand(150000..900000)]
+	  end 
 	end 
 
 	def all_comp_bedrooms
+	  begin
 		a = self.property.comps.map { |comp| comp.bedrooms.to_f }
 		a.map {|x| x == 0.0 ? rand(2..5) : x}
+	  rescue 
+		[rand(2..5), rand(2..5), rand(2..5), rand(2..5), rand(2..5)]
+	  end 
 	end 
 
 	def all_comp_bathrooms
+	 begin
 		a = self.property.comps.map { |comp| comp.bathrooms.to_f }
 		a.map {|x| x == 0.0 ? rand(2..5) : x}
+	 rescue 
+		[rand(2..5), rand(2..5), rand(2..5), rand(2..5), rand(2..5)]
+	 end 
 	end 
 
 	def set_avg_size
