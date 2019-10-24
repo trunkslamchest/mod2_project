@@ -17,8 +17,16 @@ body {
 }
 
 .heading {
-	margin: 1em auto 0.5em;
-	padding-bottom: 0.5em;
+	width:100%;
+	min-width: 100%;
+	margin-top: 2rem;
+	margin-bottom: 1rem ;
+	margin-left: 0.5rem;
+	margin-right: 0rem;
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+	padding-left: 0rem;
+	padding-right: 0rem;
 	font-family: 'Roboto';
 }
 
@@ -44,8 +52,8 @@ body {
 	height: 100%;
 	min-height: 100vh;
 	background: rgba(255, 255, 255, 0.25);
-	margin-left:auto; margin-right:auto; margin-top:0; margin-bottom:0;
-	padding-left: 2rem; padding-right: 2rem;
+	margin-left:auto; margin-right:auto;
+	padding-left: 1rem; padding-right: 1em;
 	font-size: 1.5rem;
 	text-decoration: none;
 	z-index:-10;
@@ -85,15 +93,33 @@ body {
 	text-shadow: 0px 0px 2px rgb(0, 0, 0, 1);
 }
 
-.index h1 {
-	z-index:0;
-	color:#afafaf;
-	font-size:1rem;
-	font-family:roboto;
-	margin:10px 10px 10px 10px;
-	padding:10px 10px 10px 10px;
+.wrapper_buttons {
+	padding-top: 1rem;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 
 .list_item {
 	width: 100%;

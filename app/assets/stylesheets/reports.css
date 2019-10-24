@@ -1,0 +1,60 @@
+.report_wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	 justify-content:
+	/* width: 75%; */
+}
+
+.report_list_wrapper {
+
+}
+
+.report_img {
+  width: auto;
+  height: auto;
+flex-shrink: 1;
+flex-basis: auto;
+order: 1; 
+	/* position: relative; */
+	/* width: 75%; */
+	/* height: 75%;
+	min-width: 25%;
+	min-height: 25%; */
+	/* margin-left:1; margin-right:0; margin-top:0; margin-bottom:0; */
+	/* padding-left:1; padding-right:0; padding-top:0; padding-bottom:0.5rem; */
+}
+
+.report_info {
+min-width: 50%;
+flex-shrink: 1;
+order: 1;
+}
+
+.report_info h1 {
+	font-size:3rem;
+	margin-left:0.5rem; margin-right:0; margin-top:0; margin-bottom:0;
+	padding-left:0.5rem; padding-right:0; padding-top:0; padding-bottom:0rem;
+}
+
+.report_info h2 {
+	font-size:1.5rem;
+	margin-left:0.5rem; margin-right:0; margin-top:0; margin-bottom:0;
+	padding-left:0.5rem; padding-right:0; padding-top:0; padding-bottom:1rem;
+}
+
+.report_wrapper_buttons {
+flex-shrink: 1;
+order: 1;
+}
+
+.report_wrapper h3 {
+	font-size: 0.75rem;
+	margin-left:0; margin-right:0; margin-top:0; margin-bottom:0;
+	padding-left:0; padding-right:0; padding-top:0; padding-bottom:0.5rem;
+}
+
+.report_wrapper p {
+	margin-left:0; margin-right:0; margin-top:0; margin-bottom:0;
+	padding-left:1rem; padding-right:0; padding-top:0; padding-bottom:0;
+}

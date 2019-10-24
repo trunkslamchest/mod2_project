@@ -1,4 +1,4 @@
-<h1>My Favorites</h1>
+<%= render "shared/heading", title: "My Favorites" %>
 
 <div class="fav_wrapper">
 <% @favorites.each do |fav| %>
@@ -14,4 +14,4 @@
 <% end %>
 </div>
 
-<%= link_to 'Back to Dashboard', @current_user%>
+<%= link_to 'Back to Dashboard', @current_user, class: "link_delete"%>

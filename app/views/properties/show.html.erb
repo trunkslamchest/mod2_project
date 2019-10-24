@@ -1,64 +1,36 @@
-<style>
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+<%= render "shared/heading", title: "Property Information" %>
 
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
+<hr>
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-</style>
-
-<h1><%= @property.street_address.titleize %></h1>
-<h2><%= @property.city.titleize %>, <%= @property.state %> <%= @property.zipcode %></h2>
-<img src=<%= @property.main_image %> alt="main image">
-<p><%= @property.bedrooms%> Bed</p>
-<p> <%= @property.bathrooms%> Bath</p>
-<p> <%= @property.square_footage%> Square Feet</p>
-
-<% if @property.user.reports.where(property_id: @property.id ).empty? %>
-
-<%= form_for @report do |f| %>
-<%= f.hidden_field :property_id, :value => @property.id %>
-<%= f.hidden_field :user_id, :value => @property.user_id %>
-<%= f.submit 'Generate Report' %>
-<% end %>
-
-<% elsif @property.comps.empty? %>
-<div class="tooltip">Report not available for this property.
-  <span class="tooltiptext">Some information is protected by Zillow at the request of the homeowner. It could be that comps are not available for this home, or that the information access has been restricted by law.</span>
+<div class="report_wrapper">
+    <div class="report_img">
+      <img src=<%= @property.main_image %> alt="main image">
+      <center>
+        <div class="wrapper_buttons">
+        <% if @property.user.reports.where(property_id: @property.id ).empty? %>
+          <%= render "report_form" %>
+        <% elsif @property.comps.empty? %>
+          <div class="tooltip">Report not available for this property.
+            <span class="tooltiptext">Some information is protected by Zillow at the request of the homeowner. It could be that comps are not available for this home, or that the information access has been restricted by law.</span>
+          </div>
+        <% else %>
+          <%= link_to 'View Report', @property.user.reports.where(property_id: @property.id, user_id: @property.user_id ).first, class: "link_create" %>
+        <%end %>
+        <% if @current_user.id != @property.user_id %>
+          <%= render "favorite_form" %>
+        <% else %>
+          <%= link_to '⭐ Favorited', favorites_path, class: "link_create" %>
+        <%end %>
+        <%= link_to 'Back to Dashboard', @property.user, class: "link_delete" %>
+        </div>
+      </center>
+    </div>
+    <div class="report_info">
+      <h1><%= @property.street_address.titleize %></h1>
+      <h2><%= @property.city.titleize %>, <%= @property.state %> <%= @property.zipcode %></h2>
+      <p><%= @property.bedrooms%> Bedrooms</p>
+      <p><%= @property.bathrooms%> Bathrooms</p>
+      <p><%= @property.square_footage%> Square Feet</p>
+    </div>
 </div>
-
-<% else %>
-<%= link_to 'View Report', @property.user.reports.where(property_id: @property.id, user_id: @property.user_id ).first%>
-<%end %>
-
-    <% if @current_user.id != @property.user_id %>
-<%# <% if @property.user.favorites.where(property_id: @property.id ).empty? %> %>
-
-<%= form_for @favorite do |f| %>
-<%= f.hidden_field :property_id, :value => @property.id %>
-<%= f.hidden_field :user_id, :value => @current_user.id %>
-<%= f.submit 'Add To Favorites' %>
-<% end %>
-
-<% else %>
-<%= '⭐ Favorited' %>
-<%end %>
-
-<%= link_to 'Back to Dashboard', @property.user %>

@@ -20,7 +20,7 @@
 						<div class="user_link"><%= link_to "Sign Up!", new_user_path %></div>
 					<% else %>
 						<div class="user_link">
-							<%= link_to "My Profile/Avatar", user_path(@current_user) %>
+							<%= link_to "Logged in as: #{@current_user.user_name}", user_path(@current_user) %>
 								<div class="user_menu_show">
 								<ul>
 									<li><%= link_to "Edit Profile", edit_user_path(@current_user) %></li>

@@ -1,6 +1,6 @@
-<h1>My Reports</h1>
+<%= render "shared/heading", title: "My Reports" %>
 
-<div class="report_wrapper">
+<div class="report_list_wrapper">
 <% @reports.each_with_index do |rep, i| %>
 	<div class="list_item">
 		<div class="list_header">
@@ -14,4 +14,4 @@
 <% end %>
 </div>
 
-<%= link_to 'Back to Dashboard', @current_user%>
+<%= link_to 'Back to Dashboard', @current_user, class: "link_delete"%>

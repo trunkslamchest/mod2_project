@@ -1,4 +1,4 @@
-<h1>Search New Property</h1>
+<%= render "shared/heading", title: "New Property Search" %>
 
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
@@ -7,5 +7,3 @@
 <% end %>
 
 <%= render "property_form" %>
-
-<%= link_to 'Back to Dashboard', @current_user%>

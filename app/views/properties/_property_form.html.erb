@@ -13,5 +13,7 @@
 	<%= f.hidden_field :user_id, :value => @current_user.id %>
 	<br>
 	<br>
-	<%= f.submit "Search", class: "link_create" %><%= link_to "Cancel", login_path, class: "link_cancel" %>
+	<%= f.submit "Search", class: "link_create" %>
+	<%= link_to 'Back to Dashboard', @current_user, class: "link_delete" %>
+	<%= link_to "Cancel", login_path, class: "link_cancel" %>
 <% end %>

@@ -1,3 +1,5 @@
+<%= render "shared/heading", title: "EasyComps Report" %>
+
 <h1>Report for <%= @report.property.street_address.titleize%>, <%= @report.property.city.titleize %>, <%= @report.property.state %></h1>
 <img src=<%= @report.property.main_image %> alt="main image">
 <div>
@@ -37,4 +39,4 @@
 <%= '⭐ Favorited' %>
 <%end %>
 
-<%= link_to 'Back to Dashboard', @current_user%>
+<%= link_to 'Back to Dashboard', @current_user, class: "link_delete"%>
