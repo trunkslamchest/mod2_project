@@ -2,7 +2,7 @@
 
 <div class="report_wrapper">
 <% @reports.each_with_index do |rep, i| %>
-		<h2>Report Date: <%="#{rep.created_at.strftime("%B %d, %Y")}" %></h2>
+		<h2><%="#{rep.created_at.strftime("%B %d, %Y")}" %></h2>
 		<p><%= link_to rep.property.street_address.titleize, report_path(rep) %></p>
 		<hr>
 		<br>

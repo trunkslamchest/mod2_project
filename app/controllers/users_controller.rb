@@ -16,6 +16,14 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def edit
+		find_user
+	end
+
+	def update
+		find_user.update(user_params)
+	end
+
 	def create
 		@user = User.create(user_params)
 		if @user.valid?
