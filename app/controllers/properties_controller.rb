@@ -18,7 +18,6 @@ class PropertiesController < ApplicationController
 
 	def create
 		@property = Property.create(property_params)
-
 		if @property.valid?
 			redirect_to @property
 		else

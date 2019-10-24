@@ -48,7 +48,8 @@
 <%= link_to 'View Report', @property.user.reports.where(property_id: @property.id, user_id: @property.user_id ).first%>
 <%end %>
 
-<% if @property.user.favorites.where(property_id: @property.id ).empty? %>
+    <% if @current_user.id != @property.user_id %>
+<%# <% if @property.user.favorites.where(property_id: @property.id ).empty? %> %>
 
 <%= form_for @favorite do |f| %>
 <%= f.hidden_field :property_id, :value => @property.id %>

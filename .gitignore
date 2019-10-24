@@ -12,7 +12,6 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-.env
 
 # Ignore uploaded files in development.
 /storage/*
@@ -30,3 +29,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.env
