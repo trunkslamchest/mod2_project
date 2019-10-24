@@ -30,6 +30,7 @@ class PropertiesController < ApplicationController
 		end
   end
 
+
 private
 
 
