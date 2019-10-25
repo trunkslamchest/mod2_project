@@ -1,30 +1,11 @@
 
 <%= render "shared/heading", title: "Property Information" %>
-
+   <% @favorite_object = @current_user.favorites.find_by(property_id: @property.id)%>
 <hr>
 
 <div class="report_wrapper">
     <div class="report_img">
       <img src=<%= @property.main_image %> alt="main image">
-      <center>
-        <div class="wrapper_buttons">
-        <% if @property.user.reports.where(property_id: @property.id ).empty? %>
-          <%= render "report_form" %>
-        <% elsif @property.comps.empty? %>
-          <div class="tooltip">Report not available for this property.
-            <span class="tooltiptext">Some information is protected by Zillow at the request of the homeowner. It could be that comps are not available for this home, or that the information access has been restricted by law.</span>
-          </div>
-        <% else %>
-          <%= link_to 'View Report', @property.user.reports.where(property_id: @property.id, user_id: @property.user_id ).first, class: "link_create" %>
-        <%end %>
-        <% if @current_user.id != @property.user_id %>
-          <%= render "favorite_form" %>
-        <% else %>
-          <%= link_to '⭐ Favorited', favorites_path, class: "link_create" %>
-        <%end %>
-        <%= link_to 'Back to Dashboard', @property.user, class: "link_delete" %>
-        </div>
-      </center>
     </div>
     <div class="report_info">
       <h1><%= @property.street_address.titleize %></h1>
@@ -33,4 +14,30 @@
       <p><%= @property.bathrooms%> Bathrooms</p>
       <p><%= @property.square_footage%> Square Feet</p>
     </div>
+        <div class="report_wrapper_buttons">
+        <% if @property.user.reports.where(property_id: @property.id ).empty? %>
+          <%= render "report_form" %>
+        <% elsif @property.comps.empty? %>
+          <div class="tooltip">Report not available for this property.
+            <span class="tooltiptext">Some information is protected by Zillow at the request of the homeowner. It could be that comps are not available for this home, or that the information access has been restricted by law.</span>
+          </div>
+        <% else %>
+          <%= link_to 'View Report', @property.user.reports.where(property_id: @property.id, user_id: @property.user_id ).first, class: "button_create" %>
+        <% end %>
+
+        <% if @favorite_object.nil? %>
+          <%= render "favorite_form" %>
+        <% elsif @property.id == @favorite_object.property_id %>
+        <%= link_to "⭐ Favorited", favorites_path, method: :get, class: "button_delete" %>
+          <%= link_to "Remove from favorites", favorite_path, method: :delete, class: "button_cancel" %>
+        <% end %>
+        <%= link_to 'Back to Dashboard', @property.user, class: "button_delete" %>
+        
+        <br>
+        <% if flash[:success] %>
+          <p><%= flash[:success] %></p>
+        <% end %>
+        
+        </div>
+
 </div>

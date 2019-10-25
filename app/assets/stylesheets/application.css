@@ -99,10 +99,6 @@ body {
 	-moz-transition-timing-function:ease-in-out;
 }
 
-.wrapper_buttons {
-	padding-top: 1rem;
-}
-
 .tooltip {
   position: relative;
   display: inline-block;
@@ -180,8 +176,8 @@ body {
 
 .main_wrapper .button_back:hover, .main_wrapper .button_back:active {
 	border: none;
-	color: #fff;
-	background: radial-gradient(rgba(191, 20, 0, 1), rgba(117, 12, 0, 1));
+	color: #000;
+	background: radial-gradient(rgba(255, 242, 0, 1), rgb(255, 200, 0, 1));
 	text-align: center;
 	text-decoration: none;
 	font-size: 1rem;

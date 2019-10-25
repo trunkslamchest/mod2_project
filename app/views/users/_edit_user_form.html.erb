@@ -15,8 +15,9 @@
 	<br>
 	<br>
 	<%= f.submit 'Update Information', class: "button_create" %>
+	<%= link_to "Cancel", user_path, class: "button_cancel" %>
 	<br>
 	<%= link_to "Delete account", @current_user, method: :delete, class: "button_delete" %>
 <br>
-<%= link_to "Cancel", user_path, class: "button_cancel" %>
+
 <% end %>

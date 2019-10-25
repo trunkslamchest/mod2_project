@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
 
     def index
-        # @favorites = Favorite.find_by(user_id: @current_user.id)
         @favorites = @current_user.favorites
     end
 
@@ -9,13 +8,20 @@ class FavoritesController < ApplicationController
         @favorite = Favorite.create(favorite_params)
           if @favorite.valid?
             flash[:success] = "This home has been added to your favorites."
+            redirect_to property_path(favorite_params[:property_id])
+          else
             redirect_to @current_user
-          # else
           end
       end
 
       def new
         @favorite = Favorite.new
+      end
+
+      def destroy
+        @favorite = Favorite.find_by(user_id: @current_user.id)
+        @favorite.destroy
+        redirect_to @current_user
       end
 
       private

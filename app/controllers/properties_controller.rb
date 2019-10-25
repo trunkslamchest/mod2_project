@@ -26,6 +26,7 @@ class PropertiesController < ApplicationController
 		end
 	end
 
+
 private
 
 	 def property_params
