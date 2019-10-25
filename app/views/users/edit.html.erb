@@ -1,3 +1,11 @@
-<%= render "shared/heading", title: "Edit Profile" %>
+<div class="report_heading_wrapper">
+	<div class="report_heading_title">
+		<%= render "shared/heading", title: "Edit Profile" %>
+	</div>
+
+	<div class="report_heading_buttons">
+		<%= link_to "Delete account", @current_user, method: :delete, class: "button_delete" %>
+	</div>
+</div>
 <hr>
 <%= render "edit_user_form" %>

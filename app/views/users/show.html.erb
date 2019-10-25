@@ -1,6 +1,14 @@
 <% if @current_user %>
- <%= render "shared/heading", title: "Dashboard" %>
- <hr>
+<div class="report_heading_wrapper">
+	<div class="report_heading_title">
+		<%= render "shared/heading", title: "Dashboard" %>
+	</div>
+
+	<div class="report_heading_buttons">
+    <%= link_to "Logout of your Account", logout_path, method: :delete, class: "button_back" %>
+  </div>
+</div>
+<hr>
   <h3>(Logged in as <%= @current_user.user_name %>)</h3>
 
   <%= link_to "New Property Search", new_property_path %>
@@ -13,10 +21,6 @@
   <br>
   <%= link_to "Edit Profile", edit_user_path(@current_user) %>
   <br>
-  <br>
-  <div>
-  <%= link_to "Logout of your Account", logout_path, method: :delete, class: "button_back" %>
-  </div>
 <% else %>
   You are not aurhorized to see this page
   <% system "sleep 3" %>

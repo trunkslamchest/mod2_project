@@ -1,4 +1,12 @@
-<%= render "shared/heading", title: "My Favorites" %>
+<div class="report_heading_wrapper">
+	<div class="report_heading_title">
+		<%= render "shared/heading", title: "My Favorites" %>
+	</div>
+
+	<div class="report_heading_buttons">
+		<%= link_to 'Back to Dashboard', @current_user, class: "button_back"%>
+	</div>
+</div>
 <hr>
 <div class="fav_wrapper">
 <% @favorites.each do |fav| %>
@@ -13,5 +21,3 @@
 	<hr>
 <% end %>
 </div>
-
-<%= link_to 'Back to Dashboard', @current_user, class: "button_back"%>

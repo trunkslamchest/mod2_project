@@ -91,7 +91,7 @@ body {
 	color: #000;
 	text-decoration: none;
 	padding-left: 0.5rem; padding-right: 2rem;
-	text-shadow: 0px 0px 1px rgb(0, 0, 0, 1);
+	text-shadow: 0px 0px 2px rgb(0, 0, 0, 1);
 	transition-property: text-shadow, padding-left;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;

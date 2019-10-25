@@ -1,4 +1,12 @@
-<%= render "shared/heading", title: "New Property Search" %>
+<div class="report_heading_wrapper">
+	<div class="report_heading_title">
+		<%= render "shared/heading", title: "New Property Search" %>
+	</div>
+
+	<div class="report_heading_buttons">
+		<%= link_to 'Back to Dashboard', @current_user, class: "button_back"%>
+	</div>
+</div>
 <hr>
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
