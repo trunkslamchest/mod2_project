@@ -13,17 +13,16 @@
 
 
     <% @favorite_object = @current_user.favorites.find_by(property_id: @property.id)%>
-
+    <% if flash[:success] %>
+        <p><%= flash[:success] %></p>
+    <% end %>
     <% if @favorite_object.nil? %>
 
     <%= form_for @favorite do |f| %>
+
     <%= f.hidden_field :property_id, :value => @property.id %>
     <%= f.hidden_field :user_id, :value => @current_user.id %>
     <%= f.submit 'Add To Favorites' %>
-
-      <% if flash[:success] %>
-          <%= flash[:success] %>
-      <% end %>
 
     <% end %>
     <% elsif @property.id == @favorite_object.property_id %>
