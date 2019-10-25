@@ -6,14 +6,7 @@ class Property < ApplicationRecord
 	after_initialize :start_zester
 
 	validates :street_address, :city, :state, :user_id, presence: true
-
-validate :plays_nice_with_zillow
-    def plays_nice_with_zillow
-     unless self.get_deep_search_results.body["response"] != nil
-        errors.add(:zp_id, "Unable to generate Zillow response")
-     end
-    end
-
+	
 	def zester
 		#this is a reader method for @zester, which is NOT stored in the DB
 		#from here, we can call Zester methods off this object

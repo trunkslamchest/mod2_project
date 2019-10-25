@@ -4,9 +4,9 @@ class Report < ApplicationRecord
 
 belongs_to :user
     belongs_to :property
-    has_many :comps, through: :property
+    # has_many :comps, through: :property
     before_create :set_values
-    validates :comps, presence: true
+    # validates :comps, presence: true
 	# after_find :build_comp_array
 
 	# def build_comp_array
