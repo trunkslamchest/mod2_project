@@ -36,15 +36,7 @@ class Property < ApplicationRecord
 	end 
 
 	def main_image
-	 begin
 		get_images.first
-	 rescue 
-		minecraft_houses = ["https://cdn1-www.gamerevolution.com/assets/uploads/2019/04/Modest-Living-House-640x360.png",
-		"https://res.cloudinary.com/lmn/image/upload/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/m/i/n/minecraft-suburban-house-youtube-20679.png",
-		"https://www.minecraft-schematics.com/schematics/pictures/13786/list-picture-13786.png?time=1571590236",
-		"https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/hdp09-Y3ZVHCAWA8F-Full-Image_GalleryBackground-en-US-1520541360917._SX1080_.jpg"]
-		minecraft_houses.sample
-	 end 
 	end 
 
 	def get_zp_id
@@ -96,13 +88,21 @@ class Property < ApplicationRecord
 
 	def get_images
 	 zresponse = find_details_by_zp_id
-	 if zresponse.body["response"] == nil
+	 if zresponse.body["response"] == nil && self.google_connect["status"] == "OK"
 		 
-     [self.get_google_img]
+	 [self.get_google_img]
+	 
+	 elsif self.google_connect["status"] != "OK"
+
+	 minecraft_houses = ["https://cdn1-www.gamerevolution.com/assets/uploads/2019/04/Modest-Living-House-640x360.png",
+	 "https://res.cloudinary.com/lmn/image/upload/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/m/i/n/minecraft-suburban-house-youtube-20679.png",
+	 "https://www.minecraft-schematics.com/schematics/pictures/13786/list-picture-13786.png?time=1571590236",
+	 "https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/hdp09-Y3ZVHCAWA8F-Full-Image_GalleryBackground-en-US-1520541360917._SX1080_.jpg"]
+	 
+	 [minecraft_houses.sample]
 
 	 else
 		zresponse.body["response"]["images"]["image"]["url"]
-
 	 end
 	end
 
