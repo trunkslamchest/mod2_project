@@ -7,6 +7,13 @@ class Property < ApplicationRecord
 
 	validates :street_address, :city, :state, :user_id, presence: true
 
+validate :plays_nice_with_zillow
+    def plays_nice_with_zillow
+     unless self.get_deep_search_results.body["response"] != nil
+        errors.add(:zp_id, "Unable to generate Zillow response")
+     end
+    end
+
 	def zester
 		#this is a reader method for @zester, which is NOT stored in the DB
 		#from here, we can call Zester methods off this object
@@ -36,15 +43,7 @@ class Property < ApplicationRecord
 	end 
 
 	def main_image
-	 begin
 		get_images.first
-	 rescue 
-		minecraft_houses = ["https://cdn1-www.gamerevolution.com/assets/uploads/2019/04/Modest-Living-House-640x360.png",
-		"https://res.cloudinary.com/lmn/image/upload/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/m/i/n/minecraft-suburban-house-youtube-20679.png",
-		"https://www.minecraft-schematics.com/schematics/pictures/13786/list-picture-13786.png?time=1571590236",
-		"https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/hdp09-Y3ZVHCAWA8F-Full-Image_GalleryBackground-en-US-1520541360917._SX1080_.jpg"]
-		minecraft_houses.sample
-	 end 
 	end 
 
 	def get_zp_id
@@ -67,7 +66,7 @@ class Property < ApplicationRecord
 		if zestimate.nil?
 			#if both price and zestimate are unavailable, generate a random price
 			#fake data, but oh well
-			rand(300000..900000)
+			zestimate = rand(300000..900000)
 		else
 			zestimate.to_i
 	  end
@@ -96,13 +95,22 @@ class Property < ApplicationRecord
 
 	def get_images
 	 zresponse = find_details_by_zp_id
-	 if zresponse.body["response"] == nil
+	 if zresponse.body["response"] == nil && self.google_connect["status"] == "OK"
 		 
-     [self.get_google_img]
+	 [self.get_google_img]
+	 
+	 elsif self.google_connect["status"] != "OK"
 
+	 minecraft_houses = ["https://www.minecraft-schematics.com/schematics/pictures/13786/list-picture-13786.png?time=1571590236"]
+	 
+	 [minecraft_houses.sample]
+
+	elsif zresponse.body["response"]["images"] == nil
+	 minecraft_houses = ["https://www.minecraft-schematics.com/schematics/pictures/13786/list-picture-13786.png?time=1571590236"]
+	 
+	 [minecraft_houses.sample]
 	 else
 		zresponse.body["response"]["images"]["image"]["url"]
-
 	 end
 	end
 

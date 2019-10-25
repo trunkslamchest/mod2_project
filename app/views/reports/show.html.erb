@@ -33,12 +33,12 @@
 		<hr>
 		<h4>Home Size</h4>
 		<p>This home is <%= number_to_percentage(@report.size_comparison.to_f.abs * 100, precision: 2) %> <%= @report.smaller_or_larger %> than comparable homes</p>
-		<p>Average home size: <%= @report.avg_size.round(1) %> sqare feet</p>
+		<p>Average home size: <%= @report.avg_size.round(1) %> square feet</p>
 		<p>This home: <%= @report.property.square_footage %> square feet</p>
 		<hr>
 
 		<h4>Home Price</h4>
-		<p>This home is <%= number_to_percentage(@report.price_comparison.abs * 100, precision: 2) %> <%= @report.cheaper_or_more_expensive %> than comparable homes</p>
+		<p>This home is <%= number_to_percentage(@report.price_comparison.to_f.abs * 100, precision: 2) %> <%= @report.cheaper_or_more_expensive %> than comparable homes</p>
 		<p>Average home price: <%= number_to_currency(@report.avg_price, precision: 2) %></p>
 		<p>This home: <%= number_to_currency(@report.property.price, precision: 2) %></p>
 		<hr>
