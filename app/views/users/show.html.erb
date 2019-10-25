@@ -1,19 +1,25 @@
 <% if @current_user %>
-    <h2>EasyComps Dashboard</h2>
-    <h3>Welcome, <%= @current_user.user_name %>!</h3>
+ <%= render "shared/heading", title: "Dashboard" %>
+ <hr>
+  <h3>(Logged in as <%= @current_user.user_name %>)</h3>
 
-    <%= link_to "New Property Search", new_property_path %>
-    <br>
-    <%= link_to "My Favorites", favorites_path %>
-    <br>
-    <%= link_to "My Reports", reports_path %>
-    <br>
-    <br>
-    <%= link_to "Logout of your Account", logout_path, method: :delete, class: "link_delete" %>
-  <% else %>
-    You are not aurhorized to see this page
-    <br>
-    <%= link_to "Back to dashboard", @current_user %>
-  <% end %>
+  <%= link_to "New Property Search", new_property_path %>
+  <br>
+  <%= link_to "My Profile", edit_user_path(@current_user) %>
+  <br>
+  <%= link_to "My Favorites", favorites_path %>
+  <br>
+  <%= link_to "My Reports", reports_path %>
+  <br>
+  <br>
+  <div>
+  <%= link_to "Logout of your Account", logout_path, method: :delete, class: "button_back" %>
+  </div>
+<% else %>
+  You are not aurhorized to see this page
+  <% system "sleep 3" %>
+  <br>
+  <%= link_to "Back to dashboard", @current_user %>
+<% end %>
 
 

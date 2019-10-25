@@ -14,6 +14,9 @@
 	<%= f.password_field :password%>
 	<br>
 	<br>
-	<%= f.submit 'Update Information', class: "link_create" %>
+	<%= f.submit 'Update Information', class: "button_create" %>
 	<br>
+	<%= link_to "Delete account", @current_user, method: :delete, class: "button_delete" %>
+<br>
+<%= link_to "Cancel", user_path, class: "button_cancel" %>
 <% end %>
