@@ -64,10 +64,11 @@ EasyComps is an application designed for potential real estate buyers/investors 
 # Installation
   ### Prerequisites
  - Easy Comps is built using Ruby, Ruby on Rails & PostgresQL. Make sure you have the latest versions of the three following components installed before cloning this repo. You can find their official installation guides below:
-  - [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-  - [Ruby On Rails](https://guides.rubyonrails.org/v5.0/getting_started.html)
-  - [PostgresQL](https://www.postgresqltutorial.com/)
- - A Zillow API key is required for Easy Comps to function properly. Sign up for a Zillow API key by [clicking this link](https://www.zillow.com/howto/api/APIOverview.htm)
+   - [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+   - [Ruby On Rails](https://guides.rubyonrails.org/v5.0/getting_started.html)
+   - [PostgresQL](https://www.postgresqltutorial.com/)
+ - A Zillow API key is required for Easy Comps to function properly
+   - Sign up for a Zillow API key by [clicking this link](https://www.zillow.com/howto/api/APIOverview.htm)
 
 &nbsp;
   ### Setup
