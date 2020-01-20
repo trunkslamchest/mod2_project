@@ -1,6 +1,3 @@
-2019 (c) Alex Farmer, Pavel Ilin, Austin Smith
-
-
 <p align="center">EasyComps</p>
 <p align="center">Your Real Source for Real Easy Real Estate Comparables</p>
 
@@ -74,7 +71,7 @@ EasyComps is an application designed for potential real estate buyers/investors 
 
 &nbsp;
   ### Setup
-  - Clone the Most Recent Branch [The Backend Repository](https://github.com/trunkslamchest/mod2_project/tree/version-0.2)
+  - [Clone the Most Recent Branch](https://github.com/trunkslamchest/mod2_project/tree/version-0.2)
     - If you are running on Windows, add `gem 'wdm', '>= 0.1.0'` to Gemfile before running `bundle install`
     - If you are running on macOS, remove `gem 'wdm', '>= 0.1.0'` from Gemfile before running `bundle install`
 
@@ -107,11 +104,11 @@ EasyComps is an application designed for potential real estate buyers/investors 
 
 # Summary Of Files
   ### Internal File Structure
-    - [app](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app): Primary location for API configuration
-      - [controllers](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/controllers): Render/REST methods
-      - [models](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/models): Active Record Associations methods
-      - [serializers](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/serializers): Filters for API
-      - [views](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/views): HTML files used to render webpages
+   - [app](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app): Primary location for API configuration
+     - [controllers](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/controllers): Render/REST methods
+     - [models](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/models): Active Record Associations methods
+     - [serializers](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/serializers): Filters for API
+     - [views](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/app/views): HTML files used to render webpages
   - [bin](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/bin): Environment configuration files
   - [config](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/config): Backend configuration files
   - [db](https://github.com/trunkslamchest/mod2_project/tree/version-0.2/db): Database Configuration files
