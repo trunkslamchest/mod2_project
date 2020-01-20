@@ -99,6 +99,16 @@ body {
 	-moz-transition-timing-function:ease-in-out;
 }
 
+.main_wrapper h3 {
+	margin: 10px auto 0 auto;
+}
+
+.index_img {
+	height: auto;
+	margin: 20px auto 0 auto;
+	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
