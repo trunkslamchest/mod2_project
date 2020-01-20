@@ -44,7 +44,7 @@ EasyComps is an application designed for potential real estate buyers/investors 
   - Fun for the whole family
   
   ### Goals
-  The main goals of the application is to provide users with the ability to .
+  The main goals of the application is to provide users with the ability to browse and compare real estate properties listed on Zillow quickly and easily.
   
   ### Challenges
   - Develop the application within 10 days
