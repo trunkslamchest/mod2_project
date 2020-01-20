@@ -1,0 +1,19 @@
+<%= form_for @new_user, html: { class: "form" } do |f| %>
+
+	<% if flash[:errors] %>
+		<%= flash[:errors] %>
+	<% end %>
+
+	<%= f.label :user_name%>
+	<%= f.text_field :user_name%>
+
+	<%= f.label :email_address%>
+	<%= f.text_field :email_address%>
+
+	<%= f.label :password%>
+	<%= f.password_field :password%>
+	<br>
+	<br>
+	<%= f.submit 'Create account', class: "button_create" %>
+	<%= link_to "Cancel", login_path, class: "button_cancel" %>
+<% end %>

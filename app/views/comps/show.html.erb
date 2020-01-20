@@ -1,0 +1,9 @@
+<h1><%= @comp.street_address %></h1>
+<h2><%= @comp.city %>, <%= @comp.state %> <%= @comp.zipcode %></h2>
+<img src=<%= @comp.main_image %> alt="main image">
+<p><%= @comp.bedrooms%> Bed</p>
+<p> <%= @comp.bathrooms%> Bath</p>
+<p> <%= @comp.square_footage%> Square Feet</p>
+
+<%= link_to 'Back to Property Details', @comp.property %>
+<%= link_to 'Back to Dashboard', @current_user%>

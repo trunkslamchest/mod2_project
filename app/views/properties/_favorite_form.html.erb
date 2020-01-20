@@ -1,0 +1,5 @@
+<%= form_for @favorite, html: { class: "form" } do |f| %>
+	<%= f.hidden_field :property_id, :value => @property.id %>
+	<%= f.hidden_field :user_id, :value => @current_user.id %>
+	<%= f.submit 'Add To Favorites', class: "button_create" %>
+<% end %>

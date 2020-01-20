@@ -1,0 +1,235 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Lato|PT+Sans);
+
+html {
+	font-size:100%;
+	font-family: "PT Sans";
+}
+
+body {
+	font-size:75%;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.heading {
+	width:100%;
+	min-width: 100%;
+	margin-top: 2rem;
+	margin-bottom: 1rem ;
+	margin-left: 0.5rem;
+	margin-right: 0rem;
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+	padding-left: 0rem;
+	padding-right: 0rem;
+	font-family: 'Roboto';
+}
+
+.main_container {
+	left: 0;
+	width: 110%;
+	position: absolute;
+	background-image: url("background02.jpg");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-attachment:fixed;
+	background-size: cover;
+	min-width: 100%;
+	min-height: 100vh;
+	max-width: 100%;
+	z-index:0;
+	margin-left:0; margin-right:0; margin-top:0; margin-bottom:0;
+	padding-left:0; padding-right:0; padding-top:0; padding-bottom:0;
+}
+
+.main_wrapper_frame {
+	width:90%; min-width: 75%; max-width: 90%;
+	height: 100%;
+	min-height: 100vh;
+	background: rgba(255, 255, 255, 0.25);
+	margin-left:auto; margin-right:auto;
+	padding-left: 1rem; padding-right: 1em;
+	font-size: 1.5rem;
+	text-decoration: none;
+	z-index:-10;
+
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.main_wrapper {
+	top:50px;
+	width:90%; min-width: 75%; max-width: 90%;
+	height: 100%;
+	min-height: 50vh;
+	background: rgba(255, 255, 255, 1);
+	/* font-family: lato; */
+	margin-left:auto; margin-right:auto; margin-top:0; margin-bottom:0;
+	padding-left: 2rem; padding-right: 2rem;
+	padding-top: 2rem; padding-bottom: 10rem;
+	font-size: 1.5rem;
+	text-decoration: none;
+	z-index:-10;
+
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.main_wrapper a, .main_wrapper a:link, .main_wrapper a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+.main_wrapper a:hover, a:active {
+	color: #000;
+	text-decoration: none;
+	padding-left: 0.5rem; padding-right: 2rem;
+	text-shadow: 0px 0px 2px rgb(0, 0, 0, 1);
+	transition-property: text-shadow, padding-left;
+	transition-duration: .1s, .1s;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function:ease-in-out;
+	-moz-transition-timing-function:ease-in-out;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.list_item {
+	width: 100%;
+	z-index:0;
+}
+
+.list_header {
+	float:left;
+
+	width: 100%;
+
+	padding-left:0rem;
+	padding-right:1rem;
+	padding-top:0.1rem;
+	padding-bottom:0.25rem;
+
+	z-index:9;
+
+	color:#003261;
+	font-family:roboto;
+	font-size: 0.75rem;
+	font-weight: 750;
+	text-decoration:none;
+}
+
+.list_text {
+	display:flex;
+
+	width: 100%;
+
+	padding-top:0.25rem;
+	padding-bottom:0.5rem;
+
+	z-index:10;
+}
+
+.main_wrapper .button_back {
+	border: none;
+  	background-image: radial-gradient(rgb(250, 250, 250, 1),  rgb(225, 225, 225, 1) );
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1rem;
+	border-radius: 5px;
+	margin-left:0.25rem; margin-right:0.25rem; margin-top:0.25rem; margin-bottom:0.25rem;
+	padding-left:0.25rem; padding-right:0.25rem; padding-top:0.25rem; padding-bottom:0.25rem;
+
+	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.main_wrapper .button_back:hover, .main_wrapper .button_back:active {
+	border: none;
+	color: #000;
+	background: radial-gradient(rgba(255, 242, 0, 1), rgb(255, 200, 0, 1));
+	text-align: center;
+	text-decoration: none;
+	font-size: 1rem;
+	border-radius: 25px;
+	margin-left:0.25rem; margin-right:0.25rem; margin-top:0.25rem; margin-bottom:0.25rem;
+	padding-left:0.25rem; padding-right:0.25rem; padding-top:0.25rem; padding-bottom:0.25rem;
+
+	transition-property: color, background, border-radius;
+	transition-duration: .25s, .25s;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function:ease-in-out;
+	-moz-transition-timing-function:ease-in-out;
+
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.report_heading_buttons p {
+	font-size: 1rem;
+		margin-left:0.25rem; margin-right:0.25rem; margin-top:0.25rem; margin-bottom:0.25rem;
+	padding-left:0.25rem; padding-right:0.25rem; padding-top:0.25rem; padding-bottom:0.25rem;
+}
+
+.report_heading_buttons .no_report a, .report_heading_buttons .no_report a:link, .report_heading_buttons .no_report a:visited {
+	border: none;
+  	background-image: radial-gradient(rgb(250, 250, 250, 1),  rgb(225, 225, 225, 1) );
+	color: #666;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1rem;
+	border-radius: 5px;
+	margin-left:0.25rem; margin-right:0.25rem; margin-top:0.25rem; margin-bottom:0.25rem;
+	padding-left:0.25rem; padding-right:0.25rem; padding-top:0.25rem; padding-bottom:0.25rem;
+
+	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.report_heading_buttons .no_report a:hover, .report_heading_buttons .no_report a:active {
+	border: none;
+  	background-image: radial-gradient(rgb(250, 250, 250, 1),  rgb(225, 225, 225, 1) );
+	color: #666;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1rem;
+	border-radius: 5px;
+	margin-left:0.25rem; margin-right:0.25rem; margin-top:0.25rem; margin-bottom:0.25rem;
+	padding-left:0.25rem; padding-right:0.25rem; padding-top:0.25rem; padding-bottom:0.25rem;
+
+	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}

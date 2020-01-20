@@ -1,0 +1,178 @@
+
+.header_frame {
+	display:flex;
+	justify-content:space-between;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:3rem;
+	background: linear-gradient(rgb(0, 90, 173, 1),  rgb(0, 95, 184, 1) );
+
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+
+}
+
+.home_link {
+	width:25%;
+	height:50%;
+	margin-top:auto;
+	margin-bottom:auto;
+	display: inline;
+	text-align: center;
+}
+
+
+.home_link a, .home_link a:link , .home_link a:visited {
+	position:relative;
+
+	padding-left:1rem;
+	padding-right:1rem;
+	padding-top:2rem;
+	padding-bottom:1rem;
+
+	color:#FFF;
+	font-family:roboto;
+	font-size:1rem;
+	text-decoration:none;
+	text-shadow: 0px 0px 5px rgb(0, 0, 0, 1);
+
+}
+
+.home_link a:hover, .home_link a:active {
+
+	padding-left:1rem;
+	padding-right:1rem;
+	padding-top:2rem;
+	padding-bottom:1rem;
+
+	background:linear-gradient(rgb(0, 71, 138, 1),  rgb(0, 50, 97, 1) );
+
+	color:rgb(255, 200, 0, 1);
+	font-family:roboto;
+	font-size:1rem;
+	text-decoration:none;
+
+	box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+
+	transition-property: color, background, box-shadow;
+	transition-duration: .1s, .1s;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function:ease-in-out;
+	-moz-transition-timing-function:ease-in-out;
+
+	-webkit-font-smoothing: antialiased;
+
+}
+
+.user_link {
+	width:25%;
+	height:50%;
+	margin-top:auto;
+	margin-bottom:auto;
+	display: inline;
+	text-align: center;
+}
+
+.user_link a, .user_link a:link , .user_link a:visited {
+	padding-left:1rem; padding-right:1rem; padding-top:2rem; padding-bottom:1rem;
+
+	color:#FFF;
+	font-family:roboto;
+	font-size:1rem;
+	text-decoration:none;
+	text-shadow: 0px 0px 5px rgb(0, 0, 0, 1);
+
+}
+
+.user_link a:hover, .user_link a:active {
+	padding-left:1rem; padding-right:1rem; padding-top:2rem; padding-bottom:1rem;
+
+	background:linear-gradient(rgb(0, 71, 138, 1),  rgb(0, 50, 97, 1) );
+
+	color:rgb(255, 200, 0, 1);
+	font-family:roboto;
+	font-size:1rem;
+	text-decoration:none;
+
+	box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+
+	transition-property: color, background, box-shadow, padding-top;
+	transition-duration: .1s, .1s;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function:ease-in-out;
+	-moz-transition-timing-function:ease-in-out;
+}
+
+
+.user_menu_show {
+	top:-500px;
+	display: none;
+		z-index: -6;
+}
+
+.user_link:hover .user_menu_show {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.user_menu_show ul {
+	list-style-type:none;
+		z-index: 0;
+}
+
+.user_menu_show ul li {
+	width: 75%;
+top: 100px;
+	box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+
+}
+
+
+.user_menu_show a, .user_menu_show a:link , .user_menu_show a:visited {
+	display: flex;
+	flex-wrap: wrap;
+	padding-left:0.5rem; padding-right:0rem; padding-top:1rem; padding-bottom:1rem;
+
+	color:#FFF;
+	background: linear-gradient(rgb(0, 90, 173, 1),  rgb(0, 95, 184, 1) );
+	font-family:roboto;
+	font-size:1rem;
+	text-decoration:none;
+			text-align: center;
+	text-shadow: 0px 0px 5px rgb(0, 0, 0, 1);
+	transition-property: color, background, box-shadow;
+	transition-duration: 0s, 0s;
+}
+
+.user_menu_show a:hover, .user_menu_show a:active {
+	padding-left:1rem; padding-right:1rem; padding-top:1rem; padding-bottom:1rem;
+
+	background:linear-gradient(rgb(0, 71, 138, 1),  rgb(0, 50, 97, 1) );
+	color:rgb(255, 200, 0, 1);
+	font-family:roboto;
+	font-size:1rem;
+	text-decoration:none;
+
+	-webkit-font-smoothing: antialiased;
+
+	box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,1.0);
+
+	transition-property: color, background, box-shadow, padding-left, padding-right;
+	transition-duration: .1s, .1s;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function:ease-in-out;
+	-moz-transition-timing-function:ease-in-out;
+
+}

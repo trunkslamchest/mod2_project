@@ -1,0 +1,5 @@
+<%= form_for @report, html: { class: "form" } do |f| %>
+	<%= f.hidden_field :property_id, :value => @property.id %>
+	<%= f.hidden_field :user_id, :value => @property.user_id %>
+	<%= f.submit 'Generate Report', class: "button_create" %>
+<% end %>
