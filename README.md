@@ -1,5 +1,4 @@
 <p align="center"><img width=75% src="https://raw.githubusercontent.com/trunkslamchest/mod2_project/version-0.2/app/assets/images/easy_comps_logo_1a.png"></p>
-<p align="center">Your Real Source for Real Easy Real Estate Comparables</p>
 
 <p align="center">
   <img align="center" src="https://img.shields.io/badge/CSS-3.0-1572B6">
