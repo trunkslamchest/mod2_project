@@ -148,7 +148,7 @@ EasyComps is an application designed for potential real estate buyers/investors 
 
 # Contact
   - austin.smith.dev@gmail.com
-  - <a href="https://www.linkedin.com/in/austin-smith-8a536214a/">LinkedIn</a>
+  - <a href="https://www.linkedin.com/in/austin-smith-dev/">LinkedIn</a>
   - <a href="https://medium.com/@trunk9slamchest">Medium</a>
 
 &nbsp;
