@@ -74,13 +74,10 @@ EasyComps is an application designed for potential real estate buyers/investors 
   - [Clone the Most Recent Branch](https://github.com/trunkslamchest/mod2_project/tree/version-0.2)
     - If you are running on Windows, add `gem 'wdm', '>= 0.1.0'` to Gemfile before running `bundle install`
     - If you are running on macOS, remove `gem 'wdm', '>= 0.1.0'` from Gemfile before running `bundle install`
-
   - Run `bundle install` to install all gems/dependancies required for Easy Comps
   - Run `rails db:create ` to create a local PostgresQL database
   - Run `rails db:migrate` to create the tables/columns required for proper Spacebar Smasher functionality
   - Create a file called `.env` in the root directory and add `SECRET_ZILLOW = "<insert Zillow API key here>"` and `EASYCOMPS_DATABASE_PASSWORD = "<insert password used during PostgresQL installation>"` to the file
-
-
 
 &nbsp;
 
