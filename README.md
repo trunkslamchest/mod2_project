@@ -22,12 +22,14 @@
   - [Key Features](#key-features)
   - [Goals](#goals)
   - [Challenges](#challenges)
+- [Demo](#demo)
 - [Installation](#installation)
     - [Prerequisites](#prerequisites)
     - [First Start](#first-start)
 - [Summary Of Files](#summary-of-files)
   - [Internal File Structure](#internal-file-structure)
 - [Credits](#credits)
+- [Contact](#contact)
 
 &nbsp;
 
@@ -57,6 +59,16 @@ EasyComps is an application designed for potential real estate buyers/investors 
 &nbsp;
 
 <a href="https://github.com/trunkslamchest/mod2_project/blob/master/README.md#contents"><img src="https://img.shields.io/badge/^-Back%20To%20Top-000000"></a>
+
+&nbsp;
+
+# Demo
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=o3icRExz4rQ" target="_blank">
+    <img align="center" src="https://img.youtube.com/vi/o3icRExz4rQ/0.jpg">
+  </a>
+</p>
 
 &nbsp;
 
