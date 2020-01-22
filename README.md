@@ -72,6 +72,10 @@ EasyComps is an application designed for potential real estate buyers/investors 
 
 &nbsp;
 
+<a href="https://github.com/trunkslamchest/mod5_project_backend/blob/master/README.md#contents"><img src="https://img.shields.io/badge/^-Back%20To%20Top-000000"></a>
+
+&nbsp;
+
 # Installation
   ### Prerequisites
  - Easy Comps is built using Ruby, Ruby on Rails & PostgresQL. Make sure you have the latest versions of the three following components installed before cloning this repo. You can find their official installation guides below:
