@@ -1,5 +1,4 @@
-<%= form_for :session, url: "/login", html: { class: "form", :autocomplete => 'off' } do |f| %>
-
+<%= form_for :session, url: "/login", html: { class: "form" } do |f| %>
   <%= f.label :user_name %>
   <%= f.text_field :user_name %>
 
@@ -7,12 +6,12 @@
   <%= f.password_field :password %>
 
   <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
-      <% end %>
+    <% flash[:errors].each do |error| %>
+      <p><%= error %></p>
+    <% end %>
   <% end %>
-	<br>
-  <%= f.submit 'Login', class: "button_create" %>
+  <br>
+  <%= f.submit 'Login', class: "button_create"  %>
   <br>
   <%= link_to "Create account", new_user_path, class: "button_create" %>
 <% end %>

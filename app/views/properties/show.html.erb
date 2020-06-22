@@ -4,42 +4,42 @@
   <%= render "shared/heading", title: "Property Information" %>
   </div>
   <div class="report_heading_buttons">
-        <% if @property.user.reports.where(property_id: @property.id ).empty? && @property.comps.any? %>
-            <%= render "report_form" %>
-        <% elsif @property.user.reports.where(property_id: @property.id ).empty? && @property.comps.empty? %>
-              <div class="no_report"><%= link_to 'Report not available for this property' %></div>
-          <% else %>
-            <%= link_to 'View Report', @property.user.reports.where(property_id: @property.id, user_id: @property.user_id ).first, class: "button_create" %>
-          <% end %>
+    <% if @property.user.reports.where(property_id: @property.id ).empty? && @property.comps.any? %>
+        <%= render "report_form" %>
+    <% elsif @property.user.reports.where(property_id: @property.id ).empty? && @property.comps.empty? %>
+          <div class="no_report"><%= link_to 'Report not available for this property' %></div>
+    <% else %>
+      <%= link_to 'View Report', @property.user.reports.where(property_id: @property.id, user_id: @property.user_id ).first, class: "button_create" %>
+    <% end %>
 
-          <% if @favorite_object.nil? %>
-            <%= render "favorite_form" %>
-          <% elsif @property.id == @favorite_object.property_id %>
-          <%= link_to "⭐ Favorited", favorites_path, method: :get, class: "button_delete" %>
-          <%= link_to "Remove from favorites", favorite_path, method: :delete, class: "button_cancel" %>
-          <% end %>
-          <%= link_to 'Back to Dashboard', @property.user, class: "button_delete" %>
-          <br>
-          <% if flash[:success] %>
-            <p><%= flash[:success] %></p>
-          <% end %>
+    <% if @favorite_object.nil? %>
+      <%= render "favorite_form" %>
+    <% elsif @property.id == @favorite_object.property_id %>
+    <%= link_to "⭐ Favorited", favorites_path, method: :get, class: "button_delete" %>
+    <%= link_to "Remove from favorites", favorite_path, method: :delete, class: "button_cancel" %>
+    <% end %>
+    <%= link_to 'Back to Dashboard', @property.user, class: "button_delete" %>
+    <br>
+    <% if flash[:success] %>
+      <p><%= flash[:success] %></p>
+    <% end %>
   </div>
 </div>
 <hr>
 
 <div class="report_show_wrapper">
-	<div class="report_show_top_wrapper">
-		<div class="report_show_img">
-			<img src=<%= @property.main_image %> alt="main image", class="report_img">
-		</div>
+  <div class="report_show_top_wrapper">
+    <div class="report_show_img">
+      <img src=<%= @property.main_image %> alt="main image", class="report_img">
+    </div>
 
-		<div class="report_show_info">
-			<h1><%= @property.street_address.titleize %></h1>
-			<h2><%= @property.city.titleize %>, <%= @property.state %> <%= @property.zipcode %></h2>
-			<p><%= @property.bedrooms%> Bedrooms</p>
-			<p><%= @property.bathrooms%> Bathrooms</p>
-			<p><%= @property.square_footage%> Square Feet</p>
-		</div>
-	</div>
-    <hr>
+    <div class="report_show_info">
+      <h1><%= @property.street_address.titleize %></h1>
+      <h2><%= @property.city.titleize %>, <%= @property.state %> <%= @property.zipcode %></h2>
+      <p><%= @property.bedrooms%> Bedrooms</p>
+      <p><%= @property.bathrooms%> Bathrooms</p>
+      <p><%= @property.square_footage%> Square Feet</p>
+    </div>
+  </div>
+  <hr>
 </div>

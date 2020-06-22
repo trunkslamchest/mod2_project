@@ -1,8 +1,8 @@
 class Favorite < ApplicationRecord
 
-	belongs_to :user
-	belongs_to :property
+  belongs_to :user
+  belongs_to :property
 
-	validates :property_id, uniqueness: true
+  validates :property_id, uniqueness: true
 
 end
