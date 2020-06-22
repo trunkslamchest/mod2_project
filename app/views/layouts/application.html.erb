@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>
-			Easy Comps
-		</title>
-		<%# <link rel="icon" type="image/png" href="../../assets/images/favicon.ico"> %>
-		<%= favicon_link_tag 'favicon.ico' %>
-		<%= csrf_meta_tags %>
-		<%= csp_meta_tag %>
-		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-	</head>
+  <head>
+    <title>
+      Easy Comps
+    </title>
+    <%# <link rel="icon" type="image/png" href="../../assets/images/favicon.ico"> %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-	<body>
-		<div class="main_container">
-			<div class="header_frame">
-					<div class="home_link">
-						<%= link_to "EASYCOMPS.COM", root_path %>
-					</div>
-					<%if @current_user == nil %>
-						<div class="user_link"><%= link_to "Login", login_path %><%= link_to "Sign Up!", new_user_path %></div>
-					<% else %>
-						<div class="user_link">
-							<%= link_to "Logged in as: #{@current_user.user_name}", user_path(@current_user) %>
-								<div class="user_menu_show">
-								<ul>
-									<li><%= link_to "Edit Profile", edit_user_path(@current_user) %></li>
-									<li><%= link_to "Search", new_property_path %></li>
-									<li><%= link_to "Reports", reports_path %></li>
-									<li><%= link_to "Favorites", favorites_path %></li>
-									<li><%= link_to "Log Out", logout_path, method: :delete %></li>
-								</ul>
-								</div>
-						</div>
-					<% end %>
-			</div>
-			<div class="main_wrapper_frame">
-				<div class="main_wrapper">
-					<%= yield %>
-				</div>
-			</div>
-			<div class="footer_frame">
+  <body>
+    <div class="main_container">
+      <div class="header_frame">
+          <div class="home_link">
+            <%= link_to "EASYCOMPS.COM", root_path %>
+          </div>
+          <%if @current_user == nil %>
+            <div class="user_link"><%= link_to "Login", login_path %><%= link_to "Sign Up!", new_user_path %></div>
+          <% else %>
+            <div class="user_link">
+              <%= link_to "Logged in as: #{@current_user.user_name}", user_path(@current_user) %>
+                <div class="user_menu_show">
+                <ul>
+                  <li><%= link_to "Edit Profile", edit_user_path(@current_user) %></li>
+                  <li><%= link_to "Search", new_property_path %></li>
+                  <li><%= link_to "Reports", reports_path %></li>
+                  <li><%= link_to "Favorites", favorites_path %></li>
+                  <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+                </ul>
+                </div>
+            </div>
+          <% end %>
+      </div>
+      <div class="main_wrapper_frame">
+        <div class="main_wrapper">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="footer_frame">
 
-			</div>
-		</div>
-	</body>
+      </div>
+    </div>
+  </body>
 </html>

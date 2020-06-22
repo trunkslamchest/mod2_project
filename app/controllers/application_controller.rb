@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def record_not_found
-		redirect_to @current_user
-	end
+    redirect_to @current_user
+  end
 
 end
