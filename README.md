@@ -1,4 +1,4 @@
-<p align="center">EasyComps</p>
+<p align="center"><img width=75% src="https://raw.githubusercontent.com/trunkslamchest/mod2_project/master/app/assets/images/easy_comps_logo_1a.png"></p>
 <p align="center">Your Real Source for Real Easy Real Estate Comparables</p>
 
 <p align="center">
@@ -6,7 +6,7 @@
   <img align="center" src="https://img.shields.io/badge/HTML-5.2-E34F26">
   <img align="center" src="https://img.shields.io/badge/Postgresql-12.1-336791">
   <img align="center" src="https://img.shields.io/badge/Ruby-2.6.5-CC342D">
-  <img align="center" src="https://img.shields.io/badge/Ruby%20On%20Rails-6.0.2.1-cc0600">
+  <img align="center" src="https://img.shields.io/badge/Ruby%20On%20Rails-6.0.3.2-cc0600">
 </p>  
 
 <p align="center">
