@@ -5,8 +5,6 @@ class CompsController < ApplicationController
         @property = @comp.property
     end
 
-    #there doesn't need to be a new or create page because comps are generated when a search is executed
-
     private
 
     def report_params
