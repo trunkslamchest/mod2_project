@@ -28,7 +28,6 @@ gem 'rest-client'
 
 gem 'json'
 
-gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -61,4 +60,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "actionpack", ">= 6.0.3.1"
+gem "actionview", ">= 6.0.2.2"
+gem "activestorage", ">= 6.0.3.1"
+gem "activesupport", ">= 6.0.3.1"
+gem 'dotenv-rails', groups: [:development, :test]
+gem "nokogiri", ">= 1.10.8"
+gem "websocket-extensions", ">= 0.1.5"
 gem 'wdm', '>= 0.1.0'
