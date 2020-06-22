@@ -1,0 +1,13 @@
+<% @users.each do |user| %>
+	Username: <%= user.user_name %>
+	<br>
+	Password: <%= user.password_digest %>
+	<br>
+	Email: <%= user.email_address %>
+	<br>
+	Properties: <% user.properties.each do |property| %>
+			<%= link_to property.street_address, property_path(property) %>
+			<br>
+	<% end %>
+	<br>
+<% end %>

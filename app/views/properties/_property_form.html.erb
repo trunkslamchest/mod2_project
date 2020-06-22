@@ -1,0 +1,18 @@
+<%= form_for @property, html: { class: "form", :autocomplete => 'off' } do |f| %>
+
+	<%= f.label :street_address, "Street Address:" %>
+	<%= f.text_field :street_address %>
+
+	<%= f.label :city %>
+	<%= f.text_field :city %>
+
+	<%= f.label :state %>
+	<%= f.select :state, @states %>
+
+	<%= f.hidden_field :user_id, :value => @current_user.id %>
+	<br>
+	<br>
+	<%= f.submit "Search", class: "button_create" %>
+	<%= link_to "Cancel", user_path(@current_user), class: "button_cancel" %>
+	<br>
+<% end %>
